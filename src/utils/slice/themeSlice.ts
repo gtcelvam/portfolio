@@ -1,6 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-type themeType = {
+export type themeType = {
     theme: 'dark'|'light'
 }
 

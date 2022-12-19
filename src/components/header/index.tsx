@@ -4,6 +4,7 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { RootState } from '../../utils/slice/configureStore';
 import { setTheme } from '../../utils/slice/themeSlice';
+import Button from '@mui/material/Button';
 import S from './header.style';
 
 
@@ -17,10 +18,16 @@ const Header = () => {
 
   return (
     <S.HeaderContainer>
-        <p>Header</p>
-        <div onClick={handleTheme}>
+        <S.Name>Thamarai Selvan</S.Name>
+        <S.NavUnorderList>
+          <S.NavListItem>Home</S.NavListItem>
+          <S.NavListItem>Features</S.NavListItem>
+          <S.NavListItem>Resume</S.NavListItem>
+          <S.NavListItem>Contact</S.NavListItem>
+        </S.NavUnorderList>
+        <S.ThemeSwitcherContainer onClick={handleTheme}>
         {theme === 'dark' ? <WbSunnyIcon/> : <DarkModeIcon/>}
-        </div>
+        </S.ThemeSwitcherContainer>
     </S.HeaderContainer>
   )
 }

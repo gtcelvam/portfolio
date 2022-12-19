@@ -1,12 +1,12 @@
 import {styled} from '@mui/system';
-import {Box} from "@mui/material";
+import {Box,Typography} from "@mui/material";
 
 namespace S{
     export const HomeContainer = styled(Box)(({theme})=>({
-        backgroundColor:theme.palette.primary.main,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: "space-between"
+        width:"100%",
+        height:"100vh",
+        backgroundColor:theme.palette.background,
+        overflowX:"hidden",
     }));
 }
 

@@ -1,7 +1,5 @@
 import { amber, deepOrange, green, grey, purple } from '@mui/material/colors';
 import { PaletteMode } from "@mui/material";
-import { RootState } from "../slice/configureStore";
-import {useSelector} from 'react-redux';
 
 export const getTheme = (mode: PaletteMode) => ({
   palette: {
@@ -15,19 +13,17 @@ export const getTheme = (mode: PaletteMode) => ({
             primary: grey[900],
             secondary: grey[800],
           },
+          background:"white"
         }
       : {
           // palette values for dark mode
           primary: deepOrange,
           divider: deepOrange[700],
-          background: {
-            default: deepOrange[900],
-            paper: deepOrange[900],
-          },
           text: {
             primary: '#fff',
             secondary: grey[500],
           },
+          background:"#212428"
         }),
   },
 });

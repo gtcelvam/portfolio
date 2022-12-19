@@ -6,10 +6,11 @@ import {createTheme} from "@mui/material/styles";
 import { useSelector } from 'react-redux/es/exports';
 import { RootState } from '../../utils/slice/configureStore';
 import S from './home.style'
+import { themeType } from '../../utils/slice/themeSlice';
 
 const Home = () => {
-  const themeDesign:any = useSelector((state:RootState)=>state.theme.theme);
-  const theme = createTheme(getTheme(themeDesign));
+  const themeDesign:any  = useSelector((state:RootState)=>state.theme.theme);
+  const theme = createTheme(getTheme(themeDesign as any) as any);
   
   return (
     <ThemeProvider theme={theme}>
