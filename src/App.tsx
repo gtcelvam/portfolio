@@ -1,14 +1,14 @@
 import React from 'react';
 import Provider from "./routes/provider";
-import S from './app.styles';
 import Home from './views/home';
+import S from './app.styles';
 
 function App() {
   return (
     <Provider>
-    <S.Container className="App">
-      <Home/>
-    </S.Container>
+      <S.Container className="App">
+        <Home />
+      </S.Container>
     </Provider>
   );
 }
