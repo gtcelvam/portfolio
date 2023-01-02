@@ -5,7 +5,6 @@ namespace S {
     export const LandingSection = styled(Box)(({ theme }) => ({
         width: "100%",
         height: "100vh",
-        padding: "0 1rem",
         display: "flex",
         alignItems: "center",
         justifyContent: "center"
@@ -88,6 +87,7 @@ namespace S {
         width: "60%",
         height: "80%",
         boxShadow: theme.palette.primaryShadow,
+        borderRadius: "1rem"
     }));
 }
 
