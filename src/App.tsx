@@ -1,10 +1,15 @@
 import React from 'react';
+import Provider from "./routes/provider";
+import Home from './views/home';
+import S from './app.styles';
 
 function App() {
   return (
-    <div className="App">
-      <p>Started</p>
-    </div>
+    <Provider>
+      <S.Container className="App">
+        <Home />
+      </S.Container>
+    </Provider>
   );
 }
 
