@@ -1,4 +1,4 @@
-import IconButton from '../button/iconButton';
+import IconButton from '../../utils/widgets/iconButton';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';

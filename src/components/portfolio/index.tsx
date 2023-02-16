@@ -1,4 +1,4 @@
-import PortfolioCard from '../cards/portfolioCards.tsx';
+import PortfolioCard from '../../utils/widgets/portfolioCards';
 import PLACEHOLDER from '../../assests/images/portfolio.jpg'
 import S from './portfolio.style';
 
@@ -17,7 +17,7 @@ const PortfolioSection = () => {
             </S.PortfolioHeadContainer>
             <S.PortfolioCardContainer container>
                 {portfolioCard.map((item) => (
-                    <PortfolioCard image={PLACEHOLDER} />
+                    <PortfolioCard key={item} image={PLACEHOLDER} />
                 ))}
             </S.PortfolioCardContainer>
         </S.PortfolioContainer>
