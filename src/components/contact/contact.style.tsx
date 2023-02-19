@@ -1,9 +1,9 @@
-import { Box, Stack, Typography } from '@mui/material';
+import { Box, Stack, TextareaAutosize, TextField, Typography } from '@mui/material';
 import { styled } from '@mui/system';
 
 namespace S {
     export const ContactSectionContainer = styled(Stack)(({ theme }) => ({
-
+        padding: `${theme.spacing(2)} ${theme.spacing(12)}`
     }));
 
     export const ContactSubtitle = styled(Typography)(({ theme }) => ({
@@ -69,10 +69,26 @@ namespace S {
         gap: theme.spacing(4)
     }));
 
-    export const ContactFormContainer = styled(Box)(({ theme }) => ({
+    export const ContactFormContainer = styled(Stack)(({ theme }) => ({
         flex: 2,
         height: "90vh",
-        border: "1px solid red"
+        gap: theme.spacing(4),
+        padding: theme.spacing(4),
+        justifyContent: "space-between",
+        boxShadow: theme.palette.primaryShadow,
+        borderRadius: "8px"
+    }));
+
+    export const ContactTextFieldContainer = styled(Stack)(({ theme }) => ({
+        justifyContent: "space-between",
+        gap: theme.spacing(4)
+    }));
+
+    export const ContactTextField = styled(TextField)(({ size }: { size?: string }) => ({ theme }) => ({
+        flex: 1,
+        input: {
+            height: size === 'medium' ? "300px" : "auto"
+        }
     }));
 }
 

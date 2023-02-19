@@ -30,13 +30,14 @@ namespace S {
     }));
 
     export const ResumeCardRatingContainer = styled(Box)(({ theme }) => ({
-        width: "100px",
+        width: "fit-content",
         height: "50px",
         boxShadow: theme.palette.primaryShadow,
         display: 'flex',
         alignItems: "center",
         justifyContent: "center",
-        borderRadius: "8px"
+        borderRadius: "8px",
+        padding: `0 ${theme.spacing(2)}`
     }));
 
     export const ResumeCardRating = styled(Typography)(({ theme }) => ({

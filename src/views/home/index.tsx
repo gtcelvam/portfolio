@@ -9,6 +9,7 @@ import S from './home.style'
 import PortfolioSection from '../../components/portfolio';
 import ResumeSection from '../../components/resume';
 import ContactSection from '../../components/contact';
+import Footer from '../../components/footer';
 
 const Home = () => {
   const themeDesign: any = useSelector((state: RootState) => state.theme.theme);
@@ -21,6 +22,7 @@ const Home = () => {
         <PortfolioSection />
         <ResumeSection />
         <ContactSection />
+        <Footer />
       </S.HomeContainer>
     </ThemeProvider>
 
