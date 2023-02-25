@@ -22,6 +22,7 @@ declare module "@mui/material" {
     custom: {
       main: string;
       dark: string;
+      transparentTheme: string;
     };
   }
 }
@@ -31,6 +32,7 @@ declare module "@mui/material" {
     custom: {
       main: string;
       dark: string;
+      transparentTheme: string;
     };
   }
 }
