@@ -44,9 +44,10 @@ namespace S {
         color: "#fff"
     });
 
-    export const PortfolioCardBtn = styled(Button)({
-        padding: "0.5rem 1rem"
-    })
+    export const PortfolioCardBtn = styled(Button)(({theme}) => ({
+        padding: "0.5rem 1rem",
+        color:  theme.palette.text.primary
+    }));
 }
 
 export default S;

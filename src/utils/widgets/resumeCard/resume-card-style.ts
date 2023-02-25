@@ -36,12 +36,13 @@ namespace S {
         display: 'flex',
         alignItems: "center",
         justifyContent: "center",
+        border:`1px solid ${theme.palette.primary.main}`,
         borderRadius: "8px",
         padding: `0 ${theme.spacing(2)}`
     }));
 
     export const ResumeCardRating = styled(Typography)(({ theme }) => ({
-        color: theme.palette.text.special
+        color: theme.palette.text.primary
     }));
 
     export const ResumeCardBody = styled(Box)({

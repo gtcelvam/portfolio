@@ -12,9 +12,6 @@ namespace S {
         height: "40px",
         borderRadius: "5px",
         boxShadow: theme.palette.btnShadow,
-        "&:hover": {
-            background: 'grey'
-        }
     }));
 }
 

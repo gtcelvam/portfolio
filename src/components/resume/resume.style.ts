@@ -27,7 +27,7 @@ namespace S {
     export const ResumeDetailsContainer = styled(Box)(({ theme }) => ({
         width: "6px",
         minHeight: "80vh",
-        backgroundColor: "#00000080",
+        backgroundColor: theme.palette.custom.dark,
         position: "relative",
         padding: "5rem 0",
         borderRadius: '8px'
@@ -36,7 +36,7 @@ namespace S {
     export const ResumeDetailsHand = styled(Box, { shouldForwardProp: prop => prop !== 'direction' && prop !== 'isSkill' })(({ direction,isSkill }: { direction: object,isSkill?:boolean }) => ({ theme }) => ({
         height: "6px",
         width: isSkill ? "100px" : "300px",
-        backgroundColor: "#00000080",
+        backgroundColor: theme.palette.custom.dark,
         position: "absolute",
         borderRadius: '8px',
         ...direction
