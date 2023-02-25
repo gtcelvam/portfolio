@@ -89,6 +89,17 @@ namespace S {
         boxShadow: theme.palette.primaryShadow,
         borderRadius: "1rem"
     }));
+
+    export const LandingIcon = styled("img")({
+        width: "1.2rem",
+        height: "1.2rem"
+    });
+
+    export const LandingMainImage = styled("img")({
+        width: "100%",
+        height: "100%",
+        objectFit: "cover"
+    })
 }
 
 export default S;

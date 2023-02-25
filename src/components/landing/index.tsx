@@ -1,8 +1,11 @@
-import React from 'react';
-import IconButton from '../button/iconButton';
+import IconButton from '../../utils/widgets/iconButton';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import JS_LOGO from "../../assests/images/jslogo.png";
+import TS_LOGO from "../../assests/images/tslogo.png";
+import REACT_LOGO from "../../assests/images/react.png";
+import BLAZZER_MAN from '../../assests/images/blazzer.jpg';
 import S from './landing.style';
 
 const LandingSection = () => {
@@ -26,16 +29,16 @@ const LandingSection = () => {
                     <S.LandingLeftBottomContentContainer>
                         <S.LandingWidgetTitle>BEST SKILL ON</S.LandingWidgetTitle>
                         <S.LandingWidgetBtnContainer>
-                            <button>Button 1</button>
-                            <button>Button 1</button>
-                            <button>Button 1</button>
+                            <IconButton><S.LandingIcon src={JS_LOGO} alt="js-logo" /></IconButton>
+                            <IconButton><S.LandingIcon src={REACT_LOGO} alt="js-logo" /></IconButton>
+                            <IconButton><S.LandingIcon src={TS_LOGO} alt="js-logo" /></IconButton>
                         </S.LandingWidgetBtnContainer>
                     </S.LandingLeftBottomContentContainer>
                 </S.LandingLeftBottomSection>
             </S.LandingLeftContainer>
             <S.LandingRightContainer>
                 <S.LandingImageContainer>
-
+                    <S.LandingMainImage src={BLAZZER_MAN} alt="ts-image" />
                 </S.LandingImageContainer>
             </S.LandingRightContainer>
         </S.LandingSection>

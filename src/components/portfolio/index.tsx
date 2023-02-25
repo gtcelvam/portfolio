@@ -1,7 +1,10 @@
-import PortfolioCard from '../cards/portfolioCards.tsx';
+import PortfolioCard from '../../utils/widgets/portfolioCards';
+import PLACEHOLDER from '../../assests/images/portfolio.jpg'
 import S from './portfolio.style';
 
 const PortfolioSection = () => {
+    //constants
+    const portfolioCard = [1, 2, 3, 4, 5, 6];
     return (
         <S.PortfolioContainer>
             <S.PortfolioHeadContainer>
@@ -12,8 +15,10 @@ const PortfolioSection = () => {
                     MY PORTFOLIO
                 </S.PorfolioHeadMainTitle>
             </S.PortfolioHeadContainer>
-            <S.PortfolioCardContainer>
-                <PortfolioCard />
+            <S.PortfolioCardContainer container>
+                {portfolioCard.map((item) => (
+                    <PortfolioCard key={item} image={PLACEHOLDER} />
+                ))}
             </S.PortfolioCardContainer>
         </S.PortfolioContainer>
     )
