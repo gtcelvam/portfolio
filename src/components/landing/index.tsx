@@ -7,10 +7,26 @@ import TS_LOGO from "../../assests/images/tslogo.png";
 import REACT_LOGO from "../../assests/images/react.png";
 import BLAZZER_MAN from '../../assests/images/blazzer.jpg';
 import S from './landing.style';
+import { useEffect, useRef } from 'react';
+import { ScrollObserver } from '../../utils/helpers';
+import { useDispatch } from 'react-redux';
 
 const LandingSection = () => {
+    //constructor
+    const dispatch = useDispatch();
+
+    //constant 
+    const landingRef = useRef<HTMLElement>(null);
+
+    useEffect(() => {
+        if (landingRef.current) {
+            let ref = landingRef.current;
+            ScrollObserver(ref, 'home', dispatch);
+        }
+    }, []);
+
     return (
-        <S.LandingSection>
+        <S.LandingSection id='home' ref={landingRef}>
             <S.LandingLeftContainer>
                 <S.LandingLeftTopSection>
                     <S.WelcomeText>WELCOME TO MY WORLD</S.WelcomeText>
