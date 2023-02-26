@@ -8,21 +8,25 @@ const ResumeCard: FC<ResumeCardDataType> = ({ data }) => {
         title: data.education ? data.education : data.companyName,
         subtitle: data.place ? data.place : data.role,
         rating: data.percentage ? data.percentage : data.duration,
-        description: data.description ? data.description : data.location
+        description: data.description ? data.description : data.description,
+        icon:data.icon
     }
     return (
         <S.ResumeCardContainer>
             <S.ResumeCardHeader direction={'row'} width={"100%"}>
-                <S.ResumeCardHeader>
+                <S.ResumeCardHeader gap={'0.3rem'}>
+                    <S.ResumeCardTitleContainer>
+                    <S.ResumeCardIcon src={cardData.icon} alt='icon'/>
                     <S.ResumeCardTitle>{cardData.title}</S.ResumeCardTitle>
-                    <S.ResumeCardSubtitle>{cardData.subtitle}</S.ResumeCardSubtitle>
+                    </S.ResumeCardTitleContainer>
+                    <S.ResumeCardSubtitle variant={'caption'}>{cardData.subtitle}</S.ResumeCardSubtitle>
                 </S.ResumeCardHeader>
                 <S.ResumeCardRatingContainer>
-                    <S.ResumeCardRating>{cardData.rating}</S.ResumeCardRating>
+                    <S.ResumeCardRating variant={'caption'}>{cardData.rating}</S.ResumeCardRating>
                 </S.ResumeCardRatingContainer>
             </S.ResumeCardHeader>
             <S.ResumeCardBody>
-                <S.ResumeCardDescription>{cardData.description}</S.ResumeCardDescription>
+                <S.ResumeCardDescription variant={'subtitle1'}>{cardData.description}</S.ResumeCardDescription>
             </S.ResumeCardBody>
         </S.ResumeCardContainer>
     )

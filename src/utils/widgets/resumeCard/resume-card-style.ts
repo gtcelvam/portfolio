@@ -14,10 +14,22 @@ namespace S {
     });
 
     export const ResumeCardHeader = styled(Stack)({
-        alignItems: "center",
+        alignItems: "flex-start",
         justifyContent: "space-between",
     });
 
+    export const ResumeCardTitleContainer = styled(Box)(({ theme }) => ({
+        width:"100%",
+        display: "flex",
+        alignItems: "center",
+        gap:theme.spacing(2)
+    }));
+
+    export const ResumeCardIcon = styled('img')({
+        width: "30px",
+        height: "30px",
+        borderRadius:"50%"
+    });
 
     export const ResumeCardTitle = styled(Typography)(({ theme }) => ({
         fontWeight: 600,
@@ -26,7 +38,7 @@ namespace S {
 
     export const ResumeCardSubtitle = styled(Typography)(({ theme }) => ({
         fontWeight: 500,
-        color: theme.palette.text.primary
+        color: theme.palette.text.primary,
     }));
 
     export const ResumeCardRatingContainer = styled(Box)(({ theme }) => ({
