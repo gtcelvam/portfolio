@@ -27,6 +27,13 @@ namespace S {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
+    a: {
+      textDecoration: "none",
+      color: theme.palette.text.primary
+    },
+    '.navActive': {
+      color:theme.palette.text.special
+    }
   }));
 
   export const NavListItem = styled("li")(({ theme }) => ({

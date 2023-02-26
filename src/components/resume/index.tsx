@@ -1,24 +1,36 @@
-import { MouseEvent, useState } from "react";
+import { useState,useEffect,useRef,MouseEvent } from "react";
+import { useDispatch } from "react-redux";
 import {
   EducationDetails,
   Experience,
   FrontEndSkills,
   BackEndSkills,
 } from "../../utils/constants";
+import { ScrollObserver } from "../../utils/helpers";
 import ResumeCard from "../../utils/widgets/resumeCard";
 import SkillCard from "../../utils/widgets/skillsCard";
 import S from "./resume.style";
 
 const ResumeSection = () => {
+  //constructor
+  const dispatch = useDispatch();
+
   //state values
   const [resumeToggle, setResumeToggle] = useState("education");
+  const resumeRef = useRef(null);
+
+  useEffect(() => {
+    if (resumeRef.current) {
+      ScrollObserver(resumeRef.current, "resume", dispatch);
+    }
+  }, []);
 
   //functions
-  const getResumeCardStyle = (isSkill?:boolean)=> ({
+  const getResumeCardStyle = (isSkill?: boolean) => ({
     0: {
       top: "50%",
       left: "-50%",
-      transform: `translate(${isSkill ? '-70%' : '-50%'}, -50%)`,
+      transform: `translate(${isSkill ? "-70%" : "-50%"}, -50%)`,
     },
     1: {
       top: "50%",
@@ -55,7 +67,7 @@ const ResumeSection = () => {
   };
 
   return (
-    <S.ResumeContainer>
+    <S.ResumeContainer id='resume' ref={resumeRef}>
       <S.ResumeTitle variant="h2">My Resume</S.ResumeTitle>
       <S.ResumeToggleBtnGrp
         value={resumeToggle}
@@ -79,7 +91,9 @@ const ResumeSection = () => {
                 >
                   <S.ResumeDetailsCard
                     direction={
-                      i % 2 === 0 ? getResumeCardStyle()[0] : getResumeCardStyle()[1]
+                      i % 2 === 0
+                        ? getResumeCardStyle()[0]
+                        : getResumeCardStyle()[1]
                     }
                   >
                     <ResumeCard data={data} />
@@ -94,7 +108,9 @@ const ResumeSection = () => {
                 >
                   <S.ResumeDetailsCard
                     direction={
-                      i % 2 === 0 ? getResumeCardStyle()[0] : getResumeCardStyle()[1]
+                      i % 2 === 0
+                        ? getResumeCardStyle()[0]
+                        : getResumeCardStyle()[1]
                     }
                   >
                     <ResumeCard data={data} />
@@ -117,7 +133,9 @@ const ResumeSection = () => {
                 >
                   <S.ResumeDetailsCard
                     direction={
-                      i % 2 === 0 ? getResumeCardStyle(true)[0] : getResumeCardStyle()[1]
+                      i % 2 === 0
+                        ? getResumeCardStyle(true)[0]
+                        : getResumeCardStyle()[1]
                     }
                     isSkill={true}
                   >
@@ -138,7 +156,9 @@ const ResumeSection = () => {
                 >
                   <S.ResumeDetailsCard
                     direction={
-                      i % 2 === 0 ? getResumeCardStyle(true)[0] : getResumeCardStyle()[1]
+                      i % 2 === 0
+                        ? getResumeCardStyle(true)[0]
+                        : getResumeCardStyle()[1]
                     }
                     isSkill={true}
                   >

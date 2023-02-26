@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState,useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
@@ -8,15 +8,13 @@ import S from "./header.style";
 
 const Header = () => {
   //Constructors
-  const theme = useSelector((state: RootState) => state.theme.theme);
+  const {theme,navActive} = useSelector((state: RootState) => state.theme);
   const dispatch = useDispatch();
 
   //state values
-  const [scrollHeight, setScrollHeight] = useState(200);
+  const [scrollHeight, setScrollHeight] = useState(0);
   const [scrollOn, setScrollOn] = useState(false);
-
-  //constants
-  let minHeight = 200;
+  const NavListRef = useRef<HTMLUListElement | null>(null);
 
   //functions
   const handleTheme = () => {
@@ -34,17 +32,28 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    scrollHeight > 50 ? setScrollOn(true) : setScrollOn(false);
-  },[scrollHeight])
+    scrollHeight >= 50 ? setScrollOn(true) : setScrollOn(false);
+  }, [scrollHeight]);
+
+  useEffect(() => {
+    if (NavListRef.current) {
+      let list:HTMLCollection = NavListRef.current?.children;
+      list && Array.from(list).forEach((item) => {
+        let element = item.children[0] as HTMLElement
+        let isActive = element.innerHTML.toLowerCase() === navActive.toLocaleLowerCase();
+        isActive ? element.classList.add('navActive') : element.classList.remove('navActive');
+      })
+    }
+  },[navActive])
 
   return (
     <S.HeaderContainer scrollOn={scrollOn}>
       <S.Name>Thamarai Selvan</S.Name>
-      <S.NavUnorderList>
-        <S.NavListItem>Home</S.NavListItem>
-        <S.NavListItem>Features</S.NavListItem>
-        <S.NavListItem>Resume</S.NavListItem>
-        <S.NavListItem>Contact</S.NavListItem>
+      <S.NavUnorderList ref={NavListRef}>
+        <S.NavListItem><a href="#home">Home</a></S.NavListItem>
+        <S.NavListItem><a href="#portfolio">Portfolio</a></S.NavListItem>
+        <S.NavListItem><a href="#resume">Resume</a></S.NavListItem>
+        <S.NavListItem><a href="#contact">Contact</a></S.NavListItem>
       </S.NavUnorderList>
       <S.ThemeSwitcherContainer onClick={handleTheme}>
         {theme === "dark" ? <WbSunnyIcon /> : <DarkModeIcon />}

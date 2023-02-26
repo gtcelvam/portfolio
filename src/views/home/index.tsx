@@ -12,8 +12,10 @@ import ContactSection from "../../components/contact";
 import Footer from "../../components/footer";
 
 const Home = () => {
+  //constructors
   const themeDesign: any = useSelector((state: RootState) => state.theme.theme);
   const theme = createTheme(getTheme(themeDesign as any) as any);
+
   return (
     <ThemeProvider theme={theme}>
       <Header />

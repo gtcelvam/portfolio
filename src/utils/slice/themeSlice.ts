@@ -1,11 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export type themeType = {
-    theme: 'dark' | 'light'
+    theme: 'dark' | 'light',
+    navActive:string
 }
 
 const initialState: themeType = {
-    theme: 'dark'
+    theme: 'dark',
+    navActive:''
 }
 
 const themeSlice = createSlice({
@@ -14,10 +16,13 @@ const themeSlice = createSlice({
     reducers: {
         setTheme: (state, action) => {
             state.theme = action.payload
+        },
+        setNavActive: (state, action) => {
+            state.navActive = action.payload
         }
     }
 });
 
-export const { setTheme } = themeSlice.actions
+export const { setTheme,setNavActive } = themeSlice.actions
 
 export default themeSlice.reducer
