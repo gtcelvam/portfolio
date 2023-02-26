@@ -8,7 +8,8 @@ export type ResumeCardDataType = {
         companyName?: string,
         role?: string,
         location?: string,
-        duration?: string
+        duration?: string,
+        icon?:string
     }
 }
 
