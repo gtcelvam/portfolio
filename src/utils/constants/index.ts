@@ -12,7 +12,11 @@ import STYLEDCOMPONENTS from "../../assests/images/styled-components.png";
 import RVS from "../../assests/images/rvs.jpg";
 import SCHOOL from "../../assests/images/school.jpg";
 import AEQUALIS from "../../assests/images/aequalisys.png";
-import AMAZON from "../../assests/images/amazon.jpg"
+import AMAZON from "../../assests/images/amazon.jpg";
+import SHOPPING_SITE from "../../assests/images/shopping-site.png";
+import COLLEGE_SITE from "../../assests/images/college-site.png";
+import STREAMING_SITE from "../../assests/images/streaming-site.png";
+import HOTEL_SITE from "../../assests/images/hotel-site.png";
 
 export const generateUniqueId = () =>
   "id_" + Date.now() + String(Math.random()).substr(2);
@@ -126,3 +130,34 @@ export const BackEndSkills = [
     logo: MYSQL,
   },
 ];
+
+export const ProjectsData = [
+  {
+    id: generateUniqueId(),
+    title: "Shopping Website",
+    image: SHOPPING_SITE,
+    description:"lorem ipsum",
+    link:"https://ts-project-f3354.web.app"
+  },
+  {
+    id: generateUniqueId(),
+    title: "Streaming Website",
+    image: STREAMING_SITE,
+    description:"lorem ipsum",
+    link:"https://photosearchapp.web.app/"
+  },
+  {
+    id: generateUniqueId(),
+    title: "Hotel Website",
+    image: HOTEL_SITE,
+    description:"lorem ipsum",
+    link:"https://restaurantwebsite-ts.web.app/"
+  },
+  {
+    id: generateUniqueId(),
+    title: "College Website",
+    image: COLLEGE_SITE,
+    description:"lorem ipsum",
+    link:"https://collegewebsite-ts.web.app/"
+  },
+]
