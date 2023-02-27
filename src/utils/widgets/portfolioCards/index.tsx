@@ -1,23 +1,23 @@
 import { FC } from 'react';
+import { PortfolioCardProps } from '../../../types/propsType';
 import S from './portfolio.style';
 
-type PortfolioCardProps = {
-    image: string
-}
-
-const PortfolioCard: FC<PortfolioCardProps> = ({ image }) => {
+const PortfolioCard: FC<PortfolioCardProps> = ({ data }) => {
+    //constants
+    const { title, image, description, link } = data;
+    
     return (
         <S.PortfolioCardContainer>
             <S.portfolioImageContainer>
                 <S.portfolioImage src={image} alt="card-image" />
             </S.portfolioImageContainer>
             <S.PortfolioDetailContainer direction={'row'}>
-                <S.PortfolioTitle>Project Title</S.PortfolioTitle>
-                <S.PortfolioTitle>Project Date</S.PortfolioTitle>
+                <S.PortfolioTitle>{ title}</S.PortfolioTitle>
+                <S.PortfolioTitle></S.PortfolioTitle>
             </S.PortfolioDetailContainer>
             <S.PortfolioDescriptionContainer>
-                <S.PortfolioDescription>lorem ipsum</S.PortfolioDescription>
-                <S.PortfolioCardBtn variant='outlined'>See Portfolio</S.PortfolioCardBtn>
+                <S.PortfolioDescription>{description}</S.PortfolioDescription>
+                <S.PortfolioCardBtn variant='outlined'><a href={link} target={'_blank'}>See Portfolio</a></S.PortfolioCardBtn>
             </S.PortfolioDescriptionContainer>
         </S.PortfolioCardContainer>
     )

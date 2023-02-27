@@ -4,6 +4,7 @@ import PLACEHOLDER from '../../assests/images/portfolio.jpg'
 import S from './portfolio.style';
 import { useDispatch } from 'react-redux';
 import { ScrollObserver } from '../../utils/helpers';
+import { ProjectsData } from '../../utils/constants';
 
 const PortfolioSection = () => {
     //constructor
@@ -31,8 +32,8 @@ const PortfolioSection = () => {
                 </S.PorfolioHeadMainTitle>
             </S.PortfolioHeadContainer>
             <S.PortfolioCardContainer container>
-                {portfolioCard.map((item) => (
-                    <PortfolioCard key={item} image={PLACEHOLDER} />
+                {ProjectsData.map((item) => (
+                    <PortfolioCard key={item.id} data={item} />
                 ))}
             </S.PortfolioCardContainer>
         </S.PortfolioContainer>
