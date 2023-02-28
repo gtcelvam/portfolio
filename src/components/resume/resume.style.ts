@@ -51,15 +51,18 @@ namespace S {
         boxShadow: theme.palette.primaryShadow,
         backgroundColor: theme.palette.background,
         borderRadius: "10px",
-        ...direction
+        ...direction,
     }));
 
-    export const MySkillComponentContainer = styled(Box)({
+    export const MySkillComponentContainer = styled(Box)(({theme})=>({
         width:'55%',
         display: 'flex',
         alignItems: 'center',
-        justifyContent:'space-between'
-    });
+        justifyContent: 'space-between',
+        [theme.breakpoints.down('sm')]: {
+            flexDirection:"column"
+        }
+    }));
 
     export const MySkillIndividualContainer = styled(Stack)({
         alignItems: 'center',
