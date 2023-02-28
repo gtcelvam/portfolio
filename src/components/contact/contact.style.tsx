@@ -3,7 +3,10 @@ import { styled } from '@mui/system';
 
 namespace S {
     export const ContactSectionContainer = styled(Stack)(({ theme }) => ({
-        padding: `${theme.spacing(2)} ${theme.spacing(12)}`
+        padding: `${theme.spacing(2)} ${theme.spacing(12)}`,
+        [theme.breakpoints.down('sm')]: {
+            padding:theme.spacing(2)
+        }
     }));
 
     export const ContactSubtitle = styled(Typography)(({ theme }) => ({
@@ -20,7 +23,10 @@ namespace S {
         gap: theme.spacing(4),
         alignItems: "center",
         justifyContent: "center",
-        minHeight: "100vh"
+        minHeight: "100vh",
+        [theme.breakpoints.down('sm')]: {
+            flexDirection:"column"
+        }
     }));
 
     export const ContactDetailsCardContainer = styled(Stack)(({ theme }) => ({

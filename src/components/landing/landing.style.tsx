@@ -7,7 +7,12 @@ namespace S {
         height: "100vh",
         display: "flex",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        [theme.breakpoints.down('sm')]: {
+            flexDirection: "column",
+            height: "fit-content",
+            gap:theme.spacing(2)
+        }
     }));
 
     export const LandingLeftContainer = styled(Box)(({
@@ -26,25 +31,39 @@ namespace S {
         // border: "1px solid blue"
     }));
 
-    export const LandingLeftBottomSection = styled(Box)(({
+    export const LandingLeftBottomSection = styled(Box)(({theme})=>({
         height: "40%",
         display: "flex",
         alignItems: "center",
         justifyContet: "center",
-        // border: "1px solid blue"
+        // border: "1px solid blue",
+        [theme.breakpoints.down('sm')]: {
+            flexDirection: "column",
+            gap:theme.spacing(2)
+        }
     }));
 
     export const WelcomeText = styled(Typography)(({ theme }) => ({
-        color: theme.palette.text.primary
+        color: theme.palette.text.primary,
+        [theme.breakpoints.down('sm')]: {
+            fontSize:"clamp(3vw,1rem,6vw)"
+        }
     }));
 
     export const GeneralHeadText = styled(Typography)(({ theme }) => ({
         color: theme.palette.text.primary,
-        fontSize: "4.5rem"
+        fontSize: "4.5rem",
+        [theme.breakpoints.down('sm')]: {
+            fontSize:"clamp(3vw,1rem,6vw)"
+        }
     }));
 
     export const GeneralDescText = styled(Typography)(({ theme }) => ({
-        color: theme.palette.text.primary
+        color: theme.palette.text.primary,
+        [theme.breakpoints.down('sm')]: {
+            textAlign:"justify",
+            fontSize:"clamp(3vw,1rem,6vw)"
+        }
     }));
 
     export const SpecialText = styled("span")(({ theme }) => ({
