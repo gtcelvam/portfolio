@@ -14,7 +14,10 @@ namespace S {
     top: 0,
     backgroundColor:scrollOn ? theme.palette.custom.transparentTheme : theme.palette.background,
     padding:`0 ${theme.spacing(2)}`,
-    zIndex:10
+    zIndex: 10,
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+    }
   }));
 
   export const Name = styled(Typography)(({ theme }) => ({
@@ -27,6 +30,9 @@ namespace S {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
+    [theme.breakpoints.down("sm")]: {
+      width:"100%"
+    },
     a: {
       textDecoration: "none",
       color: theme.palette.text.primary

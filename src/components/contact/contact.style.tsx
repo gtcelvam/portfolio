@@ -11,12 +11,15 @@ namespace S {
 
     export const ContactSubtitle = styled(Typography)(({ theme }) => ({
         color: theme.palette.text.special,
-        textAlign: "center"
+        textAlign: "center",
     }));
 
     export const ContactTitle = styled(Typography)(({ theme }) => ({
         color: theme.palette.text.primary,
-        textAlign: "center"
+        textAlign: "center",
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "clamp(3vw,3rem,6vw) !important"
+        }
     }));
 
     export const ContactDetailSection = styled(Stack)(({ theme }) => ({
