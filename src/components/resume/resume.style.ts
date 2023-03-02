@@ -30,7 +30,16 @@ namespace S {
         backgroundColor: theme.palette.custom.dark,
         position: "relative",
         padding: "5rem 0",
-        borderRadius: '8px'
+        borderRadius: '8px',
+        [theme.breakpoints.down('sm')]: {
+            position: "relative",
+            display: "flex",
+            flexDirection:"column",
+            alignItems: "center",
+            justifyContent: "flex-start",
+            height: "1000px",
+            padding:'0.5rem 0'
+        }
     }));
 
     export const ResumeDetailsHand = styled(Box, { shouldForwardProp: prop => prop !== 'direction' && prop !== 'isSkill' })(({ direction,isSkill }: { direction: object,isSkill?:boolean }) => ({ theme }) => ({
@@ -39,7 +48,12 @@ namespace S {
         backgroundColor: theme.palette.custom.dark,
         position: "absolute",
         borderRadius: '8px',
-        ...direction
+        ...direction,
+        [theme.breakpoints.down('sm')]: {
+            position: "relative",
+            left: 'auto',
+            right:'auto'
+        }
     }));
 
     export const ResumeDetailsCard = styled(Box, { shouldForwardProp: prop => prop !== 'direction' && prop !== 'isSkill' })(({ direction,isSkill }: { direction: object,isSkill?:boolean }) => ({ theme }) => ({
@@ -52,15 +66,20 @@ namespace S {
         backgroundColor: theme.palette.background,
         borderRadius: "10px",
         ...direction,
+        [theme.breakpoints.down('sm')]: {
+            position: "relative",
+            width:'350px'
+        }
     }));
 
     export const MySkillComponentContainer = styled(Box)(({theme})=>({
         width:'55%',
         display: 'flex',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         justifyContent: 'space-between',
         [theme.breakpoints.down('sm')]: {
-            flexDirection:"column"
+            flexDirection: "column",
+            alignItems: 'center',
         }
     }));
 
