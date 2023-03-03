@@ -17,7 +17,10 @@ namespace S {
     });
 
     export const FooterMainTitle = styled(Typography)(({ theme }) => ({
-        color: theme.palette.text.primary
+        color: theme.palette.text.primary,
+        [theme.breakpoints.down('sm')]: {
+            fontSize:"14px"
+        }
     }));
 
     export const FooterSubtitle = styled(Typography)(({ theme }) => ({

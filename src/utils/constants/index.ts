@@ -17,6 +17,8 @@ import SHOPPING_SITE from "../../assests/images/shopping-site.png";
 import COLLEGE_SITE from "../../assests/images/college-site.png";
 import STREAMING_SITE from "../../assests/images/streaming-site.png";
 import HOTEL_SITE from "../../assests/images/hotel-site.png";
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { Theme } from "@mui/material/styles";
 
 export const generateUniqueId = () =>
   "id_" + Date.now() + String(Math.random()).substr(2);
@@ -161,3 +163,5 @@ export const ProjectsData = [
     link:"https://collegewebsite-ts.web.app/"
   },
 ]
+
+export const useCustomView = ()=> useMediaQuery((theme:Theme) => theme.breakpoints.down('sm'));
