@@ -33,12 +33,18 @@ namespace S {
 
     export const ResumeCardTitle = styled(Typography)(({ theme }) => ({
         fontWeight: 600,
-        color: theme.palette.text.primary
+        color: theme.palette.text.primary,
+        [theme.breakpoints.down('sm')]: {
+            fontSize:"10px"
+        }
     }));
 
     export const ResumeCardSubtitle = styled(Typography)(({ theme }) => ({
         fontWeight: 500,
         color: theme.palette.text.primary,
+        [theme.breakpoints.down('sm')]: {
+            fontSize:"10px"
+        }
     }));
 
     export const ResumeCardRatingContainer = styled(Box)(({ theme }) => ({
@@ -50,11 +56,18 @@ namespace S {
         justifyContent: "center",
         border:`1px solid ${theme.palette.primary.main}`,
         borderRadius: "8px",
-        padding: `0 ${theme.spacing(2)}`
+        padding: `0 ${theme.spacing(2)}`,
+        [theme.breakpoints.down('sm')]: {
+            padding: `0 ${theme.spacing(1)}`,
+        }
     }));
 
     export const ResumeCardRating = styled(Typography)(({ theme }) => ({
-        color: theme.palette.text.primary
+        color: theme.palette.text.primary,
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "10px",
+            whiteSpace:"nowrap"
+        }
     }));
 
     export const ResumeCardBody = styled(Box)({
@@ -62,7 +75,10 @@ namespace S {
     });
 
     export const ResumeCardDescription = styled(Typography)(({ theme }) => ({
-        color: theme.palette.text.primary
+        color: theme.palette.text.primary,
+        [theme.breakpoints.down('sm')]: {
+            fontSize:"10px"
+        }
     }));
 }
 

@@ -5,13 +5,12 @@ import {
   Experience,
   FrontEndSkills,
   BackEndSkills,
+  useCustomView,
 } from "../../utils/constants";
 import { ScrollObserver } from "../../utils/helpers";
 import ResumeCard from "../../utils/widgets/resumeCard";
 import SkillCard from "../../utils/widgets/skillsCard";
-import useMediaQuery from '@mui/material/useMediaQuery';
 import S from "./resume.style";
-import { Theme } from "@mui/material/styles";
 
 const ResumeSection = () => {
   //constructor
@@ -22,7 +21,7 @@ const ResumeSection = () => {
   const resumeRef = useRef(null);
 
   //constant
-  const isMobileView = useMediaQuery((theme:Theme) => theme.breakpoints.down('sm'));
+  const isMobileView = useCustomView()
 
   useEffect(() => {
     if (resumeRef.current) {

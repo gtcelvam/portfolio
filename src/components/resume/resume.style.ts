@@ -22,6 +22,9 @@ namespace S {
 
     export const ResumeToggleBtn = styled(ToggleButton)(({ theme }) => ({
         color: theme.palette.text.special,
+        [theme.breakpoints.down('sm')]: {
+            fontSize:"12px"
+        }
     }));
 
     export const ResumeDetailsContainer = styled(Box)(({ theme }) => ({
@@ -37,7 +40,7 @@ namespace S {
             flexDirection:"column",
             alignItems: "center",
             justifyContent: "flex-start",
-            height: "1000px",
+            height: "700px",
             padding:'0.5rem 0'
         }
     }));
@@ -68,7 +71,8 @@ namespace S {
         ...direction,
         [theme.breakpoints.down('sm')]: {
             position: "relative",
-            width:'350px'
+            width: '350px',
+            height: isSkill ? "60px" : "180px"
         }
     }));
 
