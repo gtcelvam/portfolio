@@ -54,7 +54,8 @@ namespace S {
         color: theme.palette.text.primary,
         fontSize: "4.5rem",
         [theme.breakpoints.down('sm')]: {
-            fontSize:"clamp(3vw,1rem,6vw)"
+            fontSize: "clamp(3vw,1rem,6vw)",
+            textAlign:"center"
         }
     }));
 

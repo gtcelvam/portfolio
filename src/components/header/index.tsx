@@ -15,6 +15,7 @@ const Header = () => {
   const [scrollHeight, setScrollHeight] = useState(0);
   const [scrollOn, setScrollOn] = useState(false);
   const NavListRef = useRef<HTMLUListElement | null>(null);
+  const themes = ['dark','light']
 
   //functions
   const handleTheme = () => {
@@ -22,6 +23,9 @@ const Header = () => {
   };
 
   useEffect(() => {
+    //theme switcher
+     dispatch(setTheme(0.5 > Math.random() ? themes[0] : themes[1]))
+
     const changeScroll = () => {
       setScrollHeight(window.scrollY)
     };
@@ -29,6 +33,7 @@ const Header = () => {
     return () => {
       window.removeEventListener("scroll", changeScroll);
     };
+    
   }, []);
 
   useEffect(() => {

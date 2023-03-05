@@ -13,7 +13,10 @@ namespace S {
     export const ResumeTitle = styled(Typography)(({ theme }) => ({
         color: theme.palette.text.special,
         textAlign: 'center',
-        fontWeight: 600
+        fontWeight: 600,
+        [theme.breakpoints.down('sm')]: {
+            fontSize:"clamp(3vw,1rem,6vw)"
+        }
     }));
 
     export const ResumeToggleBtnGrp = styled(ToggleButtonGroup)(({ theme }) => ({
@@ -41,7 +44,7 @@ namespace S {
             alignItems: "center",
             justifyContent: "flex-start",
             height: "700px",
-            padding:'0.5rem 0'
+            padding: '0.5rem 0',
         }
     }));
 
