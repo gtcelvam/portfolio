@@ -46,8 +46,23 @@ namespace S {
     cursor: "pointer",
   }));
 
-  export const ThemeSwitcherContainer = styled(Box)(({}) => ({
+  export const ThemeSwitcherContainer = styled(Box)(({theme}) => ({
     padding: "1%",
+    [theme.breakpoints.down('sm')]: {
+      position:"fixed",
+      bottom: "10px",
+      right: "10px",
+      display: 'flex',
+      alignItems: "center",
+      justifyContent: "center",
+      background: theme.palette.transparentTheme,
+      borderRadius: "50%",
+      padding: theme.spacing(1),
+      svg: {
+        width:"0.8rem",
+        height:"0.8rem"
+      }
+    }
   }));
 }
 

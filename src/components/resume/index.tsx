@@ -17,11 +17,17 @@ const ResumeSection = () => {
   const dispatch = useDispatch();
 
   //state values
-  const [resumeToggle, setResumeToggle] = useState("education");
+  const [resumeToggle, setResumeToggle] = useState("experience");
   const resumeRef = useRef(null);
 
   //constant
-  const isMobileView = useCustomView()
+  const isMobileView = useCustomView();
+  const isExperience = resumeToggle === 'experience' && isMobileView ;
+  const experienceStyle = {
+    height: isExperience ? '500px' : '700px',
+    minHeight: isExperience ? 'auto' : '80vh',
+    gap: isExperience ? '5rem' : 'unset'
+  }
 
   useEffect(() => {
     if (resumeRef.current) {
@@ -79,14 +85,14 @@ const ResumeSection = () => {
         exclusive
         aria-label="Large sizes"
       >
-        <S.ResumeToggleBtn value="education">Education</S.ResumeToggleBtn>
+        <S.ResumeToggleBtn value="experience">Experience</S.ResumeToggleBtn>
         <S.ResumeToggleBtn value="professional-skills">
           Professional Skills
         </S.ResumeToggleBtn>
-        <S.ResumeToggleBtn value="experience">Experience</S.ResumeToggleBtn>
+        <S.ResumeToggleBtn value="education">Education</S.ResumeToggleBtn>
       </S.ResumeToggleBtnGrp>
       {resumeToggle !== "professional-skills" && (
-        <S.ResumeDetailsContainer>
+        <S.ResumeDetailsContainer style={experienceStyle}>
           {resumeToggle === "education"
             ? EducationDetails.map((data, i) => (
                 <S.ResumeDetailsHand
