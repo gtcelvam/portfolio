@@ -2,6 +2,7 @@ import IconButton from '../../utils/widgets/iconButton';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import DownloadRoundedIcon from '@mui/icons-material/DownloadRounded';
 import JS_LOGO from "../../assests/images/jslogo.png";
 import TS_LOGO from "../../assests/images/tslogo.png";
 import REACT_LOGO from "../../assests/images/react.png";
@@ -40,6 +41,7 @@ const LandingSection = () => {
                             <IconButton><a href='https://www.linkedin.com/in/thamarai-selvan-851068164/' target="_blank"><LinkedInIcon /></a></IconButton>
                             <IconButton><a href='https://www.instagram.com/gtselvam' target="_blank"><InstagramIcon /></a></IconButton>
                             <IconButton><a href='https://github.com/gtcelvam' target="_blank"><GitHubIcon /></a></IconButton>
+                            <IconButton><a href='https://drive.google.com/file/d/1pg27V4RkjaI5zEyIDyAAJk0ebI5kl3oQ/view' target="_blank"><DownloadRoundedIcon/></a></IconButton>
                         </S.LandingWidgetBtnContainer>
                     </S.LandingLeftBottomContentContainer>
                     <S.LandingLeftBottomContentContainer>
