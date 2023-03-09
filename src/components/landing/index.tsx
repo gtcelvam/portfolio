@@ -45,7 +45,7 @@ const LandingSection = () => {
                         </S.LandingWidgetBtnContainer>
                     </S.LandingLeftBottomContentContainer>
                     <S.LandingLeftBottomContentContainer>
-                        <S.LandingWidgetTitle>BEST SKILL ON</S.LandingWidgetTitle>
+                        <S.LandingWidgetTitle>BEST SKILL ON !</S.LandingWidgetTitle>
                         <S.LandingWidgetBtnContainer>
                             <IconButton><S.LandingIcon src={JS_LOGO} alt="js-logo" /></IconButton>
                             <IconButton><S.LandingIcon src={REACT_LOGO} alt="js-logo" /></IconButton>
