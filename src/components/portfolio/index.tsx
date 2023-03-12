@@ -17,7 +17,7 @@ const PortfolioSection = () => {
      useEffect(() => {
          if (portfolioRef.current) {
             let ref = portfolioRef.current;
-            ScrollObserver(portfolioRef.current, 'portfolio', dispatch);
+            ScrollObserver(ref, 'portfolio', dispatch);
         }
     }, []);
 

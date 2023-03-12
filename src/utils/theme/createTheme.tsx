@@ -17,7 +17,7 @@ export const getTheme = (mode: PaletteMode) => ({
         },
         custom: {
           dark: '#7B1830',
-          transparentTheme:"#00000010"
+          transparentTheme:"#FAFAFA90"
         },
         background: "white",
         btnShadow: "0px 1px 5px 1px rgba(222,222,222,1);",
@@ -31,11 +31,11 @@ export const getTheme = (mode: PaletteMode) => ({
         text: {
           primary: '#fff',
           secondary: grey[500],
-          special: "#003D7A"
+          special: "#0034B8"
         },
         custom: {
           dark: '#050E25',
-          transparentTheme:"#00000060"
+          transparentTheme:"#00000090"
         },
         background: "#212428",
         btnShadow: "10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;",
