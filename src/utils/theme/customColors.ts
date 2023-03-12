@@ -1,7 +1,7 @@
 export const dark = {
-  500: "#003D7A",
+  500: "#0034B8",
   primary: {
-    main: "#003D7A",
+    main: "#0034B8",
     transparent:"rgba(0, 61, 122, 0.5)"
   },
 };

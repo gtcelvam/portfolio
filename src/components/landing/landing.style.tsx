@@ -21,13 +21,16 @@ namespace S {
         // border: "1px solid red"
     }));
 
-    export const LandingLeftTopSection = styled(Box)(({
+    export const LandingLeftTopSection = styled(Box)(({theme})=>({
         height: "60%",
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
         justifyContent: "center",
         gap: "1rem",
+        [theme.breakpoints.down('sm')]: {
+            alignItems:"center"
+        }
         // border: "1px solid blue"
     }));
 
@@ -71,7 +74,7 @@ namespace S {
         color: theme.palette.text.special
     }));
 
-    export const LandingLeftBottomContentContainer = styled(Box)(({
+    export const LandingLeftBottomContentContainer = styled(Box)(({theme})=>({
         flex: 1,
         height: "100%",
         display: "flex",
@@ -79,7 +82,9 @@ namespace S {
         alignItems: "flex-start",
         justifyContent: "center",
         gap: "1rem",
-        // border: "1px solid yellow"
+        [theme.breakpoints.down('sm')]: {
+            alignItems:"center"
+        }
     }));
 
     export const LandingWidgetTitle = styled(Typography)(({ theme }) => ({
