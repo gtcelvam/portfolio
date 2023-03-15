@@ -1,5 +1,5 @@
 import S from './footer.style';
-import AVATAR from '../../assests/images/avatar.png'
+import AVATAR from '../../assests/images/ts_icon.jpg'
 
 const Footer = () => {
     return (
