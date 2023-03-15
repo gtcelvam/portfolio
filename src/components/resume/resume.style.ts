@@ -63,7 +63,7 @@ namespace S {
     }));
 
     export const ResumeDetailsCard = styled(Box, { shouldForwardProp: prop => prop !== 'direction' && prop !== 'isSkill' })(({ direction,isSkill }: { direction: object,isSkill?:boolean }) => ({ theme }) => ({
-        width: isSkill ? '300px' : "500px",
+        width: isSkill ? '15vw' : "500px",
         height: isSkill ? "60px" : "250px",
         position: "absolute",
         display: 'flex',
