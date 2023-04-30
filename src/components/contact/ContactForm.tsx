@@ -45,9 +45,10 @@ const ContactFormComponent = () => {
       let mailData = {
         subject: data.subject,
         text: `
-                mail id : ${data.email},
-                phone number : ${data.phone}
-                message : ${data.text}
+                Mail id : ${data.email},
+                Phone number : ${data.phone}
+                Subject : ${data.subject}
+                Message : ${data.text}
               `,
       };
       let result: any = await handleRequest("POST", mailData, "/api/mail");
