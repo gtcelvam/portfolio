@@ -17,7 +17,7 @@ import SHOPPING_SITE from "../../assests/images/shopping-site.png";
 import COLLEGE_SITE from "../../assests/images/college-site.png";
 import STREAMING_SITE from "../../assests/images/streaming-site.png";
 import HOTEL_SITE from "../../assests/images/hotel-site.png";
-import useMediaQuery from '@mui/material/useMediaQuery';
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { Theme } from "@mui/material/styles";
 
 export const generateUniqueId = () =>
@@ -29,24 +29,27 @@ export const EducationDetails = [
     education: "BE - Civil Engineering",
     place: "Rvs Technical Campus - Coimbatore",
     percentage: "6.47 CGPA",
-    description: "Obtained a Bachelor's degree in Civil Engineering with a focus on structural analysis and design, completed from 2014-2018.",
-    icon:RVS
+    description:
+      "Obtained a Bachelor's degree in Civil Engineering with a focus on structural analysis and design, completed from 2014-2018.",
+    icon: RVS,
   },
   {
     id: generateUniqueId(),
     education: "12th Grade",
     place: "GBHSS - Pattukkottai",
     percentage: "83%",
-    description: "Completed 12th grade with a focus on Mathematics and Computer Science in 2014 from GBHSS, Pattukkottai, Thanjavur.",
-    icon:SCHOOL
+    description:
+      "Completed 12th grade with a focus on Mathematics and Computer Science in 2014 from GBHSS, Pattukkottai, Thanjavur.",
+    icon: SCHOOL,
   },
   {
     id: generateUniqueId(),
     education: "10th Grade",
     place: "GBHSS - Pattukkottai",
     percentage: "77.2%",
-    description: "Completed 10th grade with a focus on Mathematics and Science from the State Board in 2012 from GBHSS, Pattukkottai, Thanjavur.",
-    icon:SCHOOL
+    description:
+      "Completed 10th grade with a focus on Mathematics and Science from the State Board in 2012 from GBHSS, Pattukkottai, Thanjavur.",
+    icon: SCHOOL,
   },
 ];
 
@@ -57,8 +60,9 @@ export const Experience = [
     role: "Junior Software Developer",
     location: "Chennai",
     duration: "May 2022 - Present",
-    description: "Managed content creation and delivery for web applications, leveraging React and TypeScript to interact with APIs and optimize delivery through thorough quality checks and adherence to technical specifications.",
-    icon:AEQUALIS
+    description:
+      "Managed content creation and delivery for web applications, leveraging React and TypeScript to interact with APIs and optimize delivery through thorough quality checks and adherence to technical specifications.",
+    icon: AEQUALIS,
   },
   {
     id: generateUniqueId(),
@@ -68,7 +72,7 @@ export const Experience = [
     duration: "Jul 2019 - Dec 2020",
     description:
       "Responsible for checking the quality of the content and also to check the content whether it meet the criteria of the process",
-    icon:AMAZON
+    icon: AMAZON,
   },
 ];
 
@@ -138,30 +142,46 @@ export const ProjectsData = [
     id: generateUniqueId(),
     title: "Shopping Website",
     image: SHOPPING_SITE,
-    description:"lorem ipsum",
-    link:"https://ts-project-f3354.web.app"
+    description:
+      "Users can create account and add products of their wish.All the products are categorized for better user experience.Also users can add quantities as they wish and they can switch colors available for the particular product.Users can only add products after login to their respective account.",
+    link: "https://ts-project-f3354.web.app",
+    tech: ["HTML", "CSS", "Javascript", "React", "Node Js", "MongoDB"],
   },
   {
     id: generateUniqueId(),
     title: "Streaming Website",
     image: STREAMING_SITE,
-    description:"lorem ipsum",
-    link:"https://photosearchapp.web.app/"
+    description:
+      "Users can see newly released movies list and also they can watch the trailer of it here.Users can check movies of different categories and also they can search movies based on genre.",
+    link: "https://photosearchapp.web.app/",
+    tech: [
+      "HTML",
+      "CSS",
+      "Javascript",
+      "React",
+      "Styled Components",
+      "TMDB API",
+    ],
   },
   {
     id: generateUniqueId(),
-    title: "Hotel Website",
+    title: "Hotel Site",
     image: HOTEL_SITE,
-    description:"lorem ipsum",
-    link:"https://restaurantwebsite-ts.web.app/"
+    description:
+      "Simple hotel website layout where users can get detials about particular hotel and also theri special dishes.This site also have the section for comments from users.",
+    link: "https://restaurantwebsite-ts.web.app/",
+    tech: ["HTML", "CSS", "Javascript"],
   },
   {
     id: generateUniqueId(),
     title: "College Website",
     image: COLLEGE_SITE,
-    description:"lorem ipsum",
-    link:"https://collegewebsite-ts.web.app/"
+    description:
+      "This site has sections where users can get details about the courses provided from this college and they can visit their gallery page to check activities happening internally and also user can send message to contact them.",
+    link: "https://collegewebsite-ts.web.app/",
+    tech: ["HTML", "CSS", "Javascript", "Bootstrap"],
   },
-]
+];
 
-export const useCustomView = ()=> useMediaQuery((theme:Theme) => theme.breakpoints.down('sm'));
+export const useCustomView = () =>
+  useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));

@@ -1,3 +1,5 @@
+import { CSSProperties, ReactNode } from "react";
+
 export type ResumeCardDataType = {
   data: {
     id: string;
@@ -22,11 +24,28 @@ export type SkillCardDataType = {
 };
 
 export type PortfolioCardProps = {
-  data: {
-    id: string;
-    title: string;
-    image: string;
-    description: string;
-    link: string;
-  };
+  data: PortfolioData;
+};
+
+export type PortfolioData = {
+  id: string;
+  title: string;
+  image: string;
+  description: string;
+  link: string;
+  tech: string[];
+};
+
+export type ModalProps = {
+  open: boolean;
+  onClose: () => void;
+  children: ReactNode;
+  customStyles?: CSSProperties;
+};
+
+export type ProjectModalType = {
+  data: PortfolioData;
+  open: boolean;
+  onClose: () => void;
+  customStyles?: CSSProperties;
 };
