@@ -28,8 +28,12 @@ const ProjectModal: FC<ProjectModalType> = (props) => {
               <S.ProjectTags key={data.id} label={item} variant="outlined" />
             ))}
           </S.ProjectTagsContainer>
-          <Button variant="outlined" onClick={handleClick}>
-            View Here
+          <Button
+            className="redirect-btn"
+            variant="outlined"
+            onClick={handleClick}
+          >
+            View Here <S.ProjectRedirectIcon />
           </Button>
         </S.ProjectDetailsContainer>
       </S.ProjectModalContainer>

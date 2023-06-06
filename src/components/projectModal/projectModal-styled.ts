@@ -1,5 +1,6 @@
 import { Chip, Box, Typography } from "@mui/material";
 import { Stack, styled } from "@mui/system";
+import LaunchIcon from "@mui/icons-material/Launch";
 
 namespace S {
   export const ProjectModalContainer = styled(Stack)(({ theme }) => ({
@@ -19,6 +20,13 @@ namespace S {
     padding: "1rem",
     height: "100%",
     gap: theme.spacing(2),
+    ".redirect-btn": {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: "0.5rem",
+      color: theme.palette.text.primary,
+    },
   }));
 
   export const ProjectTitle = styled(Typography)(({ theme }) => ({
@@ -47,6 +55,11 @@ namespace S {
     [theme.breakpoints.down("sm")]: {
       fontSize: "0.75rem",
     },
+  }));
+
+  export const ProjectRedirectIcon = styled(LaunchIcon)(() => ({
+    width: "20px",
+    height: "auto",
   }));
 }
 
