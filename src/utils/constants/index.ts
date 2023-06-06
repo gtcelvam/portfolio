@@ -18,6 +18,8 @@ import COLLEGE_SITE from "../../assests/images/college-site.png";
 import STREAMING_SITE from "../../assests/images/streaming-site.png";
 import HOTEL_SITE from "../../assests/images/hotel-site.png";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import GRAPHQL from "../../assests/images/graphql.png";
+import REST_API from "../../assests/images/rest-api.png";
 import { Theme } from "@mui/material/styles";
 
 export const generateUniqueId = () =>
@@ -89,6 +91,11 @@ export const FrontEndSkills = [
   },
   {
     id: generateUniqueId(),
+    skill: "Rest API",
+    logo: REST_API,
+  },
+  {
+    id: generateUniqueId(),
     skill: "JavaScript",
     logo: JS,
   },
@@ -134,6 +141,11 @@ export const BackEndSkills = [
     id: generateUniqueId(),
     skill: "MySQL",
     logo: MYSQL,
+  },
+  {
+    id: generateUniqueId(),
+    skill: "GraphQL",
+    logo: GRAPHQL,
   },
 ];
 
@@ -185,3 +197,11 @@ export const ProjectsData = [
 
 export const useCustomView = () =>
   useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+
+/* Social Links */
+export const LINKEDIN_URL =
+  "https://www.linkedin.com/in/thamarai-selvan-851068164/";
+export const INSTAGRAM_URL = "https://www.instagram.com/gtselvam";
+export const GITHUB_URL = "https://github.com/gtcelvam";
+export const RESUME_URL =
+  "https://drive.google.com/file/d/1r-w0yg_XBKywH2mKtcfCdG-0h2QC-1rC/view?usp=sharing";

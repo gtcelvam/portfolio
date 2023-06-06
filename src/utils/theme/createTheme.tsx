@@ -23,6 +23,8 @@ export const getTheme = (mode: PaletteMode) => ({
           btnShadow: "0px 1px 5px 1px rgba(222,222,222,1);",
           primaryShadow: "5px 7px 15px 6px rgba(117,117,117,0.23);",
           transparentTheme: dark.primary.transparent,
+          gradient:
+            "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,254,254,1) 65%, rgba(255,200,215,1) 95%)",
         }
       : {
           // palette values for dark mode
@@ -41,6 +43,8 @@ export const getTheme = (mode: PaletteMode) => ({
           btnShadow: "10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;",
           primaryShadow: "5px 7px 15px 6px rgba(16,27,36,1);",
           transparentTheme: light.primary.transparent,
+          gradient:
+            "linear-gradient(90deg, rgba(33,36,40,1) 60%, rgba(32,95,255,0.6699054621848739) 95%)",
         }),
   },
 });
