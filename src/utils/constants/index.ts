@@ -205,3 +205,18 @@ export const INSTAGRAM_URL = "https://www.instagram.com/gtselvam";
 export const GITHUB_URL = "https://github.com/gtcelvam";
 export const RESUME_URL =
   "https://drive.google.com/file/d/1r-w0yg_XBKywH2mKtcfCdG-0h2QC-1rC/view?usp=sharing";
+
+/* Scroll Animation  */
+export const fadeInAnime = {
+  animation: "fadeIn 2s ease-in-out",
+  "@keyframes fadeIn": {
+    "0%": {
+      opacity: 0,
+      marginTop: "20px",
+    },
+    "100%": {
+      opacity: 1,
+      marginTop: 0,
+    },
+  },
+};

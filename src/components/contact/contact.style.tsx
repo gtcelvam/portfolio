@@ -1,18 +1,16 @@
-import {
-  Box,
-  Button,
-  Stack,
-  TextareaAutosize,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
 namespace S {
   export const ContactSectionContainer = styled(Stack)(({ theme }) => ({
     padding: `${theme.spacing(2)} ${theme.spacing(12)}`,
+    opacity: 0,
+    transition: "all 0.4s ease-in-out",
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(2),
+    },
+    "&.contact-active": {
+      opacity: 1,
     },
   }));
 

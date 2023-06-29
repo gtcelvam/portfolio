@@ -11,7 +11,7 @@ export const ScrollObserver = (
     ([entry]) => {
       entry.isIntersecting && action(setNavActive(name));
     },
-    { root: null, threshold: 0.5 }
+    { root: null, threshold: 0 }
   );
   Observer.observe(ref);
 };
