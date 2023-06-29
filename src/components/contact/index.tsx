@@ -11,10 +11,10 @@ const ContactSection = () => {
   const dispatch = useDispatch();
 
   //state values
-  const contactRef = useRef(null);
+  const contactRef = useRef<HTMLElement>(null);
 
   //constants
-  const componentId = useComponentStatus("contact") ? "contact-active" : "";
+  const componentId = useComponentStatus("contact");
 
   useEffect(() => {
     if (contactRef.current) {
@@ -22,12 +22,16 @@ const ContactSection = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (contactRef.current) {
+      let contactClass = contactRef.current?.classList;
+      let isClassPresent = contactClass?.contains("contact-active");
+      if (componentId && !isClassPresent) contactClass?.add("contact-active");
+    }
+  }, [componentId]);
+
   return (
-    <S.ContactSectionContainer
-      className={componentId}
-      id="contact"
-      ref={contactRef}
-    >
+    <S.ContactSectionContainer id="contact" ref={contactRef}>
       <S.ContactSubtitle>Contact</S.ContactSubtitle>
       <S.ContactTitle variant="h1">Contact With Me</S.ContactTitle>
       <S.ContactDetailSection direction={"row"}>

@@ -5,7 +5,7 @@ namespace S {
   export const ContactSectionContainer = styled(Stack)(({ theme }) => ({
     padding: `${theme.spacing(2)} ${theme.spacing(12)}`,
     opacity: 0,
-    transition: "all 0.4s ease-in-out",
+    transition: "all 0.8s ease-in-out",
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(2),
     },

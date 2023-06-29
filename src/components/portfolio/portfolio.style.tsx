@@ -7,7 +7,7 @@ namespace S {
     width: "100%",
     minHeight: "100vh",
     opacity: 0,
-    transition: "all 0.4s ease-in-out",
+    transition: "all 0.8s ease-in-out",
     "&.portfolio-active": {
       opacity: 1,
     },

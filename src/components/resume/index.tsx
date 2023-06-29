@@ -19,7 +19,7 @@ const ResumeSection = () => {
 
   //state values
   const [resumeToggle, setResumeToggle] = useState("experience");
-  const resumeRef = useRef(null);
+  const resumeRef = useRef<HTMLElement>(null);
 
   //constant
   const isMobileView = useCustomView();
@@ -29,13 +29,21 @@ const ResumeSection = () => {
     minHeight: isExperience ? "auto" : "80vh",
     gap: isExperience ? "5rem" : "unset",
   };
-  const componentId = useComponentStatus("resume") ? "resume-active" : "";
+  const componentId = useComponentStatus("resume");
 
   useEffect(() => {
     if (resumeRef.current) {
       ScrollObserver(resumeRef.current, "resume", dispatch);
     }
   }, []);
+
+  useEffect(() => {
+    if (resumeRef.current) {
+      let resumeClass = resumeRef.current?.classList;
+      let isClassPresent = resumeClass?.contains("resume-active");
+      if (componentId && !isClassPresent) resumeClass?.add("resume-active");
+    }
+  }, [componentId]);
 
   //functions
   const getResumeCardStyle = (isSkill?: boolean) => ({
@@ -83,7 +91,7 @@ const ResumeSection = () => {
   };
 
   return (
-    <S.ResumeContainer id="resume" className={componentId} ref={resumeRef}>
+    <S.ResumeContainer id="resume" ref={resumeRef}>
       <S.ResumeTitle variant="h2">My Resume</S.ResumeTitle>
       <S.ResumeToggleBtnGrp
         value={resumeToggle}

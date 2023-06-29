@@ -13,7 +13,7 @@ const PortfolioSection = () => {
 
   //constants
   const portfolioRef = useRef<HTMLElement>(null);
-  const componentId = useComponentStatus("portfolio") ? "portfolio-active" : "";
+  const componentId = useComponentStatus("portfolio");
 
   useEffect(() => {
     if (portfolioRef.current) {
@@ -22,12 +22,14 @@ const PortfolioSection = () => {
     }
   }, []);
 
+  useEffect(() => {
+    let portfolioClass = portfolioRef.current?.classList;
+    let isClassPresent = portfolioClass?.contains("portfolio-active");
+    if (componentId && !isClassPresent) portfolioClass?.add("portfolio-active");
+  }, [componentId]);
+
   return (
-    <S.PortfolioContainer
-      id="portfolio"
-      className={componentId}
-      ref={portfolioRef}
-    >
+    <S.PortfolioContainer id="portfolio" ref={portfolioRef}>
       <S.PortfolioHeadContainer>
         <S.PortfolioHeadTitle>
           Visit these sites here for more
