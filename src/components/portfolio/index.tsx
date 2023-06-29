@@ -1,18 +1,19 @@
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import PortfolioCard from "../../utils/widgets/portfolioCards";
 import PLACEHOLDER from "../../assests/images/portfolio.jpg";
 import S from "./portfolio.style";
 import { useDispatch } from "react-redux";
 import { ScrollObserver } from "../../utils/helpers";
 import { ProjectsData } from "../../utils/constants";
+import { useComponentStatus } from "../../utils/helpers/hooks";
 
 const PortfolioSection = () => {
   //constructor
   const dispatch = useDispatch();
 
   //constants
-  const portfolioCard = [1, 2, 3, 4, 5, 6];
   const portfolioRef = useRef<HTMLElement>(null);
+  const componentId = useComponentStatus("portfolio");
 
   useEffect(() => {
     if (portfolioRef.current) {
@@ -20,6 +21,12 @@ const PortfolioSection = () => {
       ScrollObserver(ref, "portfolio", dispatch);
     }
   }, []);
+
+  useEffect(() => {
+    let portfolioClass = portfolioRef.current?.classList;
+    let isClassPresent = portfolioClass?.contains("portfolio-active");
+    if (componentId && !isClassPresent) portfolioClass?.add("portfolio-active");
+  }, [componentId]);
 
   return (
     <S.PortfolioContainer id="portfolio" ref={portfolioRef}>

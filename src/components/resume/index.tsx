@@ -1,4 +1,4 @@
-import { useState,useEffect,useRef,MouseEvent } from "react";
+import { useState, useEffect, useRef, MouseEvent } from "react";
 import { useDispatch } from "react-redux";
 import {
   EducationDetails,
@@ -11,6 +11,7 @@ import { ScrollObserver } from "../../utils/helpers";
 import ResumeCard from "../../utils/widgets/resumeCard";
 import SkillCard from "../../utils/widgets/skillsCard";
 import S from "./resume.style";
+import { useComponentStatus } from "../../utils/helpers/hooks";
 
 const ResumeSection = () => {
   //constructor
@@ -18,16 +19,17 @@ const ResumeSection = () => {
 
   //state values
   const [resumeToggle, setResumeToggle] = useState("experience");
-  const resumeRef = useRef(null);
+  const resumeRef = useRef<HTMLElement>(null);
 
   //constant
   const isMobileView = useCustomView();
-  const isExperience = resumeToggle === 'experience' && isMobileView ;
+  const isExperience = resumeToggle === "experience" && isMobileView;
   const experienceStyle = {
-    height: isExperience ? '500px' : '700px',
-    minHeight: isExperience ? 'auto' : '80vh',
-    gap: isExperience ? '5rem' : 'unset'
-  }
+    height: isExperience ? "500px" : "700px",
+    minHeight: isExperience ? "auto" : "80vh",
+    gap: isExperience ? "5rem" : "unset",
+  };
+  const componentId = useComponentStatus("resume");
 
   useEffect(() => {
     if (resumeRef.current) {
@@ -35,17 +37,27 @@ const ResumeSection = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (resumeRef.current) {
+      let resumeClass = resumeRef.current?.classList;
+      let isClassPresent = resumeClass?.contains("resume-active");
+      if (componentId && !isClassPresent) resumeClass?.add("resume-active");
+    }
+  }, [componentId]);
+
   //functions
   const getResumeCardStyle = (isSkill?: boolean) => ({
     0: {
       top: isMobileView ? "0" : "50%",
       left: isMobileView ? `${isSkill ? "-125%" : "-9%"}` : "-50%",
-      transform: isMobileView ? 'translate(0%,0%)' : `translate(${isSkill ? "-70%" : "-50%"}, -50%)`,
+      transform: isMobileView
+        ? "translate(0%,0%)"
+        : `translate(${isSkill ? "-70%" : "-50%"}, -50%)`,
     },
     1: {
       top: isMobileView ? "0" : "50%",
       right: isMobileView ? `${isSkill ? "125%" : "9%"}` : "50%",
-      transform: isMobileView ? 'translate(0%,0%)' : "translate(100%, -50%)",
+      transform: isMobileView ? "translate(0%,0%)" : "translate(100%, -50%)",
     },
   });
 
@@ -68,7 +80,9 @@ const ResumeSection = () => {
     var i = 0;
     while (i <= len) {
       handData[i] = {
-        top:isMobileView ? `${i * (isSkill ? 10 : 30)}%` :  `${(i + 1) * (isSkill ? 10 : 25)}%`,
+        top: isMobileView
+          ? `${i * (isSkill ? 10 : 30)}%`
+          : `${(i + 1) * (isSkill ? 10 : 25)}%`,
         [i % 2 === 0 ? "right" : "left"]: 0,
       };
       i++;
@@ -77,7 +91,7 @@ const ResumeSection = () => {
   };
 
   return (
-    <S.ResumeContainer id='resume' ref={resumeRef}>
+    <S.ResumeContainer id="resume" ref={resumeRef}>
       <S.ResumeTitle variant="h2">My Resume</S.ResumeTitle>
       <S.ResumeToggleBtnGrp
         value={resumeToggle}
@@ -157,7 +171,13 @@ const ResumeSection = () => {
           </S.MySkillIndividualContainer>
           <S.MySkillIndividualContainer>
             <S.MySkillTitle>Back End</S.MySkillTitle>
-            <S.ResumeDetailsContainer style={{height:isMobileView ? '300px' : 'auto',gap:"3.5rem",minHeight:isMobileView ? 'auto' : "50vh"}}>
+            <S.ResumeDetailsContainer
+              style={{
+                height: isMobileView ? "300px" : "auto",
+                gap: "3.5rem",
+                minHeight: isMobileView ? "auto" : "50vh",
+              }}
+            >
               {BackEndSkills.map((data, i) => (
                 <S.ResumeDetailsHand
                   key={data.id}
