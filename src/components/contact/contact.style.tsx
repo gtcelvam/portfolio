@@ -8,6 +8,7 @@ namespace S {
     transition: "all 0.8s ease-in-out",
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(2),
+      opacity: 1,
     },
     "&.contact-active": {
       opacity: 1,
