@@ -5,6 +5,7 @@ import REACT from "../../assests/images/react.png";
 import MUI from "../../assests/images/mui.png";
 import SASS from "../../assests/images/sass.png";
 import TYPESCRIPT from "../../assests/images/tslogo.png";
+import NEXTJS from "../../assests/images/nextlogo.png";
 import NODEJS from "../../assests/images/node.png";
 import MYSQL from "../../assests/images/sql.png";
 import MONGODB from "../../assests/images/mongodb.png";
@@ -17,6 +18,7 @@ import SHOPPING_SITE from "../../assests/images/shopping-site.png";
 import COLLEGE_SITE from "../../assests/images/college-site.png";
 import STREAMING_SITE from "../../assests/images/streaming-site.png";
 import HOTEL_SITE from "../../assests/images/hotel-site.png";
+import WEATHER_APP from "../../assests/images/ts-weather-app.jpg";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import GRAPHQL from "../../assests/images/graphql.png";
 import REST_API from "../../assests/images/rest-api.png";
@@ -79,6 +81,11 @@ export const Experience = [
 ];
 
 export const FrontEndSkills = [
+  {
+    id: generateUniqueId(),
+    skill: "Next JS",
+    logo: NEXTJS,
+  },
   {
     id: generateUniqueId(),
     skill: "TypeScript",
@@ -152,6 +159,15 @@ export const BackEndSkills = [
 export const ProjectsData = [
   {
     id: generateUniqueId(),
+    title: "Weather App",
+    image: WEATHER_APP,
+    description:
+      "Users can search for weather day for the day also for next 12 hours and next 1 week.",
+    link: "https://ts-test-weather-app.netlify.app",
+    tech: ["HTML", "CSS", "Javascript", "React", "Typescript", "Next JS"],
+  },
+  {
+    id: generateUniqueId(),
     title: "Shopping Website",
     image: SHOPPING_SITE,
     description:
@@ -204,7 +220,7 @@ export const LINKEDIN_URL =
 export const INSTAGRAM_URL = "https://www.instagram.com/gtselvam";
 export const GITHUB_URL = "https://github.com/gtcelvam";
 export const RESUME_URL =
-  "https://drive.google.com/file/d/1r-w0yg_XBKywH2mKtcfCdG-0h2QC-1rC/view?usp=sharing";
+  "https://drive.google.com/file/d/1NO-ybwSxkxOGmNCmHQu1IJDsRtm-xnw5/view?usp=sharing";
 
 /* Scroll Animation  */
 export const fadeInAnime = {
