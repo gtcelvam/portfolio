@@ -18,7 +18,7 @@ import SHOPPING_SITE from "../../assests/images/shopping-site.png";
 import COLLEGE_SITE from "../../assests/images/college-site.png";
 import STREAMING_SITE from "../../assests/images/streaming-site.png";
 import HOTEL_SITE from "../../assests/images/hotel-site.png";
-import WEATHER_APP from "../../assests/images/ts-weather-app.jpg";
+import WEATHER_APP from "../../assests/images/ts-weather-app.png";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import GRAPHQL from "../../assests/images/graphql.png";
 import REST_API from "../../assests/images/rest-api.png";
