@@ -11,15 +11,10 @@ import ERROR_AVATAR_IMAGE from "../../assests/images/error_avatar.png";
 import S from "./landing.style";
 import { useEffect, useRef } from "react";
 import { useQuery } from "@apollo/client";
-import { ScrollObserver } from "../../utils/helpers";
+import { ScrollObserver, handleSocialLink } from "../../utils/helpers";
 import { useDispatch } from "react-redux";
-import { ProfileQuery } from "../../client/queries";
-import {
-  GITHUB_URL,
-  INSTAGRAM_URL,
-  LINKEDIN_URL,
-  RESUME_URL,
-} from "../../utils/constants";
+import { ProfileQuery, SocialLinkQuery } from "../../client/queries";
+import { RESUME_URL } from "../../utils/constants";
 
 const LandingSection = () => {
   //constructor
@@ -27,9 +22,18 @@ const LandingSection = () => {
 
   //state values
   const { loading, data, error } = useQuery(ProfileQuery);
+  const {
+    loading: isSocialLoading,
+    data: socialData,
+    error: socialError,
+  } = useQuery(SocialLinkQuery);
 
   //constant
   const landingRef = useRef<HTMLElement>(null);
+  const socilaLinkList = socialData?.socialLinks;
+  const LINKEDIN_URL = handleSocialLink(socilaLinkList, "LinkedIn", "link");
+  const INSTAGRAM_URL = handleSocialLink(socilaLinkList, "Instagram", "link");
+  const GITHUB_URL = handleSocialLink(socilaLinkList, "GitHub", "link");
 
   useEffect(() => {
     if (landingRef.current) {
