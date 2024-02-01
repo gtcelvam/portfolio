@@ -40,3 +40,22 @@ export const handleRequest = async (
     return result;
   }
 };
+
+type linkList = {
+  name: string;
+  link: string;
+};
+type name = string;
+type key = "name" | "link";
+export const handleSocialLink: (
+  linkList: linkList[],
+  name: name,
+  key: key
+) => string | undefined = (linkList, name, key) => {
+  if (linkList) {
+    let result: linkList | undefined = linkList.find(
+      (item) => item.name === name
+    );
+    return result?.[key];
+  }
+};

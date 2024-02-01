@@ -9,3 +9,12 @@ export const ProfileQuery = gql`
     }
   }
 `;
+
+export const SocialLinkQuery = gql`
+  query {
+    socialLinks {
+      name
+      link
+    }
+  }
+`;
