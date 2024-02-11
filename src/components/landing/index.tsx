@@ -109,7 +109,7 @@ const LandingSection = () => {
           ) : error ? (
             <S.LandingMainImage src={ERROR_AVATAR_IMAGE} alt="error_image" />
           ) : (
-            <S.LandingMainImage src={data.profile.url} alt="ts-image" />
+            <S.LandingMainImage src={data.profile.image} alt="ts-image" />
           )}
         </S.LandingImageContainer>
       </S.LandingRightContainer>
