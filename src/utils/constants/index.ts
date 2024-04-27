@@ -14,6 +14,7 @@ import RVS from "../../assests/images/rvs.jpg";
 import SCHOOL from "../../assests/images/school.jpg";
 import AEQUALIS from "../../assests/images/aequalisys.png";
 import AMAZON from "../../assests/images/amazon.jpg";
+import APPINESS from "../../assests/images/appiness.jpg";
 import SHOPPING_SITE from "../../assests/images/shopping-site.png";
 import COLLEGE_SITE from "../../assests/images/college-site.png";
 import STREAMING_SITE from "../../assests/images/streaming-site.png";
@@ -60,10 +61,20 @@ export const EducationDetails = [
 export const Experience = [
   {
     id: generateUniqueId(),
+    companyName: "Appiness Interactive",
+    role: "Software Developer - Web",
+    location: "Bangalore",
+    duration: "July 2023 - Present",
+    description:
+      "Working on developing and managing a high-performance e-commerce platform using Next.js with integrated Razorpay payment processing. Implemented server-side rendering for SEO, dynamic routing, and secure transactions for a seamless shopping experience.",
+    icon: APPINESS,
+  },
+  {
+    id: generateUniqueId(),
     companyName: "Aequalis Software Solutions",
     role: "Junior Software Developer",
     location: "Chennai",
-    duration: "May 2022 - Present",
+    duration: "May 2022 - May 2023",
     description:
       "Managed content creation and delivery for web applications, leveraging React and TypeScript to interact with APIs and optimize delivery through thorough quality checks and adherence to technical specifications.",
     icon: AEQUALIS,
