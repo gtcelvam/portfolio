@@ -1,10 +1,11 @@
 import { gql } from "@apollo/client";
 
 export const ProfileQuery = gql`
-  query {
-    profile {
+  query Profile($userId: String!) {
+    profile(userId: $userId) {
       name
       image
+      description
     }
   }
 `;
