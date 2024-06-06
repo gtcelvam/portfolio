@@ -25,6 +25,8 @@ import GRAPHQL from "../../assests/images/graphql.png";
 import REST_API from "../../assests/images/rest-api.png";
 import { Theme } from "@mui/material/styles";
 
+export const profileID = "6424756d6531409d24093d10";
+
 export const generateUniqueId = () =>
   "id_" + Date.now() + String(Math.random()).substr(2);
 

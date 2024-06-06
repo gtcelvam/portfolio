@@ -14,14 +14,20 @@ import { useQuery } from "@apollo/client";
 import { ScrollObserver, handleSocialLink } from "../../utils/helpers";
 import { useDispatch } from "react-redux";
 import { ProfileQuery, SocialLinkQuery } from "../../client/queries";
-import { RESUME_URL } from "../../utils/constants";
+import { RESUME_URL, profileID } from "../../utils/constants";
+import { profile } from "console";
 
 const LandingSection = () => {
   //constructor
   const dispatch = useDispatch();
 
   //state values
-  const { loading, data, error } = useQuery(ProfileQuery);
+  const { loading, data, error } = useQuery(ProfileQuery, {
+    variables: {
+      userId: profileID,
+    },
+  });
+
   const {
     loading: isSocialLoading,
     data: socialData,
@@ -51,12 +57,7 @@ const LandingSection = () => {
             Hi,This is <S.SpecialText>Thamarai Selvan</S.SpecialText>, Software
             developer.
           </S.GeneralHeadText>
-          <S.GeneralDescText>
-            Experienced junior software developer with expertise in JavaScript,
-            TypeScript, React, and Material-UI as base, having developed
-            responsive web applications and built user interfaces with 1 year of
-            experience
-          </S.GeneralDescText>
+          <S.GeneralDescText>{data?.profile?.description}</S.GeneralDescText>
         </S.LandingLeftTopSection>
         <S.LandingLeftBottomSection>
           <S.LandingLeftBottomContentContainer>
