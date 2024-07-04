@@ -80,7 +80,7 @@ const LandingSection = () => {
                 </a>
               </IconButton>
               <IconButton>
-                <a href={RESUME_URL} target="_blank">
+                <a href={data?.profile?.resume || RESUME_URL} target="_blank">
                   <DownloadRoundedIcon />
                 </a>
               </IconButton>

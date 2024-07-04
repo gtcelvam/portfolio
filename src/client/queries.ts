@@ -6,6 +6,7 @@ export const ProfileQuery = gql`
       name
       image
       description
+      resume
     }
   }
 `;
