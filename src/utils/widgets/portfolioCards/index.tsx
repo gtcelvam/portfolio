@@ -2,10 +2,11 @@ import { FC, useState } from "react";
 import { PortfolioCardProps } from "../../../types/propsType";
 import S from "./portfolio.style";
 import ProjectModal from "../../../components/projectModal";
+import { projectReturnType } from "../../../types/returnType";
 
-const PortfolioCard: FC<PortfolioCardProps> = ({ data }) => {
+const PortfolioCard: FC<{ data: projectReturnType }> = ({ data }) => {
   //constants
-  const { id, title, image, description, link } = data;
+  const { id, name, image, description, projectLink } = data;
 
   //state values
   const [isOpen, setIsOpen] = useState(false);
@@ -19,10 +20,10 @@ const PortfolioCard: FC<PortfolioCardProps> = ({ data }) => {
     <>
       <S.PortfolioCardContainer>
         <S.portfolioImageContainer>
-          <S.portfolioImage src={image} alt="card-image" />
+          <S.portfolioImage src={image as string} alt="card-image" />
         </S.portfolioImageContainer>
         <S.PortfolioDetailContainer direction={"row"}>
-          <S.PortfolioTitle>{title}</S.PortfolioTitle>
+          <S.PortfolioTitle>{name}</S.PortfolioTitle>
           <S.PortfolioTitle></S.PortfolioTitle>
         </S.PortfolioDetailContainer>
         <S.PortfolioDescriptionContainer>

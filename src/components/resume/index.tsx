@@ -7,11 +7,15 @@ import {
   BackEndSkills,
   useCustomView,
 } from "../../utils/constants";
-import { ScrollObserver } from "../../utils/helpers";
+import { sanitizedExperienceData, ScrollObserver } from "../../utils/helpers";
 import ResumeCard from "../../utils/widgets/resumeCard";
 import SkillCard from "../../utils/widgets/skillsCard";
-import S from "./resume.style";
 import { useComponentStatus } from "../../utils/helpers/hooks";
+import { useQuery } from "@apollo/client";
+import { ExperienceQUery, SkillQuery } from "../../client/queries";
+import S from "./resume.style";
+import { experienceReturnType, skillsReturnType } from "../../types/returnType";
+import { ResumeCardDataType } from "../../types/propsType";
 
 const ResumeSection = () => {
   //constructor
@@ -19,6 +23,9 @@ const ResumeSection = () => {
 
   //state values
   const [resumeToggle, setResumeToggle] = useState("experience");
+  const { data: experienceData, loading: isExperienceLoading } =
+    useQuery(ExperienceQUery);
+  const { data: skillData, loading: isSkillLoading } = useQuery(SkillQuery);
   const resumeRef = useRef<HTMLElement>(null);
 
   //constant
@@ -30,6 +37,14 @@ const ResumeSection = () => {
     gap: isExperience ? "5rem" : "unset",
   };
   const componentId = useComponentStatus("resume");
+  const getAllExperience = experienceData?.getAllExperience || [];
+  const getAllSkill = skillData?.getAllSkills || [];
+  const FrontEndSkills = getAllSkill.filter(
+    (item: skillsReturnType) => item.backend === false
+  );
+  const BackEndSkills = getAllSkill.filter(
+    (item: skillsReturnType) => item.backend === true
+  );
 
   useEffect(() => {
     if (resumeRef.current) {
@@ -125,7 +140,7 @@ const ResumeSection = () => {
                 </S.ResumeDetailsHand>
               ))
             : resumeToggle === "experience"
-            ? Experience.map((data, i) => (
+            ? getAllExperience.map((data: experienceReturnType, i: number) => (
                 <S.ResumeDetailsHand
                   key={data.id}
                   direction={getResumeHandStyle(Experience.length)[i]}
@@ -149,7 +164,7 @@ const ResumeSection = () => {
           <S.MySkillIndividualContainer>
             <S.MySkillTitle>Front End</S.MySkillTitle>
             <S.ResumeDetailsContainer>
-              {FrontEndSkills.map((data, i) => (
+              {FrontEndSkills.map((data: skillsReturnType, i: number) => (
                 <S.ResumeDetailsHand
                   key={data.id}
                   isSkill={true}
@@ -178,7 +193,7 @@ const ResumeSection = () => {
                 minHeight: isMobileView ? "auto" : "50vh",
               }}
             >
-              {BackEndSkills.map((data, i) => (
+              {BackEndSkills.map((data: skillsReturnType, i: number) => (
                 <S.ResumeDetailsHand
                   key={data.id}
                   isSkill={true}

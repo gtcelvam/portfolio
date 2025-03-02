@@ -13,7 +13,7 @@ namespace S {
     flexDirection: "column",
     alignItems: "center",
     gap: "1rem",
-    minHeight: "100vh",
+    minHeight: "130vh",
     opacity: 0,
     transition: "all 0.8s ease-in-out",
     "&.resume-active": {

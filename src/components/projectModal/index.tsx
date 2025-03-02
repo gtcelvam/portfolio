@@ -10,21 +10,21 @@ const ProjectModal: FC<ProjectModalType> = (props) => {
 
   //functions
   const handleClick = () => {
-    window.open(data.link);
+    window.open(data.projectLink as string);
   };
 
   return (
     <ModalContainer open={open} onClose={onClose} customStyles={customStyles}>
       <S.ProjectModalContainer>
-        <S.ProjectBanner src={data.image} alt={data.title} />
+        <S.ProjectBanner src={data.image as string} alt={data.name} />
         <S.ProjectDetailsContainer>
-          <S.ProjectTitle>{data.title}</S.ProjectTitle>
+          <S.ProjectTitle>{data.name}</S.ProjectTitle>
           <S.ProjectDescription>{data.description}</S.ProjectDescription>
           <S.ProjectDescription alignSelf={"flex-start"}>
             Technologies involved :{" "}
           </S.ProjectDescription>
           <S.ProjectTagsContainer>
-            {data.tech.map((item) => (
+            {data.techStack.map((item) => (
               <S.ProjectTags key={data.id} label={item} variant="outlined" />
             ))}
           </S.ProjectTagsContainer>
