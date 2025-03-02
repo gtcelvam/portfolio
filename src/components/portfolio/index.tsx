@@ -1,19 +1,29 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import PortfolioCard from "../../utils/widgets/portfolioCards";
 import PLACEHOLDER from "../../assests/images/portfolio.jpg";
-import S from "./portfolio.style";
 import { useDispatch } from "react-redux";
 import { ScrollObserver } from "../../utils/helpers";
-import { ProjectsData } from "../../utils/constants";
 import { useComponentStatus } from "../../utils/helpers/hooks";
+import { ProjectQuery } from "../../client/queries";
+import { useQuery } from "@apollo/client";
+import { projectReturnType } from "../../types/returnType";
+import S from "./portfolio.style";
 
 const PortfolioSection = () => {
   //constructor
   const dispatch = useDispatch();
 
+  //hooks
+  const {
+    loading: isProjectLoading,
+    data,
+    error: projectError,
+  } = useQuery(ProjectQuery);
+
   //constants
   const portfolioRef = useRef<HTMLElement>(null);
   const componentId = useComponentStatus("portfolio");
+  let ProjectsData = data?.getAllProjects || [];
 
   useEffect(() => {
     if (portfolioRef.current) {
@@ -37,9 +47,10 @@ const PortfolioSection = () => {
         <S.PorfolioHeadMainTitle variant="h3">MY WORKS</S.PorfolioHeadMainTitle>
       </S.PortfolioHeadContainer>
       <S.PortfolioCardContainer container>
-        {ProjectsData.map((item) => (
-          <PortfolioCard key={item.id} data={item} />
-        ))}
+        {Boolean(ProjectsData.length) &&
+          ProjectsData.map((item: projectReturnType) => (
+            <PortfolioCard key={item.id} data={item} />
+          ))}
       </S.PortfolioCardContainer>
     </S.PortfolioContainer>
   );

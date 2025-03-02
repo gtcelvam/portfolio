@@ -8,14 +8,13 @@ import TS_LOGO from "../../assests/images/tslogo.png";
 import REACT_LOGO from "../../assests/images/react.png";
 import LOADER from "../../assests/images/loader.gif";
 import ERROR_AVATAR_IMAGE from "../../assests/images/error_avatar.png";
-import S from "./landing.style";
 import { useEffect, useRef } from "react";
 import { useQuery } from "@apollo/client";
 import { ScrollObserver, handleSocialLink } from "../../utils/helpers";
 import { useDispatch } from "react-redux";
 import { ProfileQuery, SocialLinkQuery } from "../../client/queries";
 import { RESUME_URL, profileID } from "../../utils/constants";
-import { profile } from "console";
+import S from "./landing.style";
 
 const LandingSection = () => {
   //constructor

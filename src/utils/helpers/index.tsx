@@ -1,6 +1,8 @@
 import { AnyAction, Dispatch } from "@reduxjs/toolkit";
 import { setNavActive } from "../slice/themeSlice";
 import axios from "axios";
+import { experienceReturnType } from "../../types/returnType";
+import { ResumeCardDataType } from "../../types/propsType";
 
 export const ScrollObserver = (
   ref: HTMLElement,
@@ -58,4 +60,26 @@ export const handleSocialLink: (
     );
     return result?.[key];
   }
+};
+
+export const sanitizedExperienceData: (
+  result: Partial<experienceReturnType>
+) => string = (result) => {
+  if (!Boolean(result.startDate && result.endDate)) return "";
+  const startData = new Date(result.startDate as string);
+
+  const formattedStartDate = startData.toLocaleString("en-US", {
+    month: "short",
+    year: "numeric",
+  });
+
+  let formattedEndDate = result.endDate;
+  if (result.endDate !== "present") {
+    const endData = new Date(result.endDate as string);
+    formattedEndDate = endData.toLocaleString("en-US", {
+      month: "short",
+      year: "numeric",
+    });
+  }
+  return formattedStartDate + " - " + formattedEndDate;
 };
