@@ -1,57 +1,54 @@
 import { useEffect, useRef } from "react";
-import PortfolioCard from "../../utils/widgets/portfolioCards";
-import PLACEHOLDER from "../../assests/images/portfolio.jpg";
 import { useDispatch } from "react-redux";
-import { ScrollObserver } from "../../utils/helpers";
-import { useComponentStatus } from "../../utils/helpers/hooks";
-import { ProjectQuery } from "../../client/queries";
 import { useQuery } from "@apollo/client";
+import { Grid } from "@mui/material";
+import PortfolioCard from "../../utils/widgets/portfolioCards";
+import { ScrollObserver } from "../../utils/helpers";
+import { ProjectQuery } from "../../client/queries";
+import { ProjectsData as FallbackProjects } from "../../utils/constants";
 import { projectReturnType } from "../../types/returnType";
 import S from "./portfolio.style";
 
 const PortfolioSection = () => {
-  //constructor
   const dispatch = useDispatch();
-
-  //hooks
-  const {
-    loading: isProjectLoading,
-    data,
-    error: projectError,
-  } = useQuery(ProjectQuery);
-
-  //constants
   const portfolioRef = useRef<HTMLElement>(null);
-  const componentId = useComponentStatus("portfolio");
-  let ProjectsData = data?.getAllProjects || [];
+  const { data } = useQuery(ProjectQuery);
+
+  const rawProjects =
+    data?.getAllProjects && data.getAllProjects.length > 0
+      ? data.getAllProjects
+      : FallbackProjects;
+
+  const normalizedProjects: projectReturnType[] = rawProjects.map((item: any) => ({
+    id: item.id,
+    name: item.name || item.title,
+    description: item.description,
+    techStack: item.techStack || item.tech || [],
+    projectLink: item.projectLink || item.link || "#",
+    repositoryLink: item.repositoryLink || "https://github.com/gtcelvam",
+    image: item.image,
+  }));
 
   useEffect(() => {
     if (portfolioRef.current) {
-      let ref = portfolioRef.current;
-      ScrollObserver(ref, "portfolio", dispatch);
+      ScrollObserver(portfolioRef.current, "portfolio", dispatch);
     }
-  }, []);
-
-  useEffect(() => {
-    let portfolioClass = portfolioRef.current?.classList;
-    let isClassPresent = portfolioClass?.contains("portfolio-active");
-    if (componentId && !isClassPresent) portfolioClass?.add("portfolio-active");
-  }, [componentId]);
+  }, [dispatch]);
 
   return (
     <S.PortfolioContainer id="portfolio" ref={portfolioRef}>
       <S.PortfolioHeadContainer>
-        <S.PortfolioHeadTitle>
-          Visit these sites here for more
-        </S.PortfolioHeadTitle>
-        <S.PorfolioHeadMainTitle variant="h3">MY WORKS</S.PorfolioHeadMainTitle>
+        <S.PortfolioHeadTitle>CURATED SHOWCASE</S.PortfolioHeadTitle>
+        <S.PorfolioHeadMainTitle variant="h2">Featured Works</S.PorfolioHeadMainTitle>
       </S.PortfolioHeadContainer>
-      <S.PortfolioCardContainer container>
-        {Boolean(ProjectsData.length) &&
-          ProjectsData.map((item: projectReturnType) => (
-            <PortfolioCard key={item.id} data={item} />
-          ))}
-      </S.PortfolioCardContainer>
+
+      <Grid container spacing={3.5}>
+        {normalizedProjects.map((item) => (
+          <Grid item xs={12} sm={6} md={4} key={item.id}>
+            <PortfolioCard data={item} />
+          </Grid>
+        ))}
+      </Grid>
     </S.PortfolioContainer>
   );
 };

@@ -1,23 +1,23 @@
-import { ThemeProvider } from "@mui/material";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { createTheme } from "@mui/material/styles";
+import { useSelector } from "react-redux";
 import Header from "../../components/header";
 import LandingSection from "../../components/landing";
-import { getTheme } from "../../utils/theme/createTheme";
-import { createTheme } from "@mui/material/styles";
-import { useSelector } from "react-redux/es/exports";
-import { RootState } from "../../utils/slice/configureStore";
-import S from "./home.style";
 import PortfolioSection from "../../components/portfolio";
 import ResumeSection from "../../components/resume";
 import ContactSection from "../../components/contact";
 import Footer from "../../components/footer";
+import { getTheme } from "../../utils/theme/createTheme";
+import { RootState } from "../../utils/slice/configureStore";
+import S from "./home.style";
 
 const Home = () => {
-  //constructors
-  const themeDesign: any = useSelector((state: RootState) => state.theme.theme);
-  const theme = createTheme(getTheme(themeDesign as any) as any);
+  const themeDesign = useSelector((state: RootState) => state.theme.theme);
+  const theme = createTheme(getTheme(themeDesign));
 
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Header />
       <S.HomeContainer>
         <LandingSection />

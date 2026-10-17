@@ -1,59 +1,67 @@
-import { Button, Stack, Typography } from "@mui/material";
+import { Button, Paper, Typography, Box } from "@mui/material";
 import { styled } from "@mui/system";
-import { Box } from "@mui/system";
 
 namespace S {
-  export const PortfolioCardContainer = styled(Stack)(({ theme }) => ({
-    width: "400px",
-    height: "400px",
-    borderRadius: "0.5rem",
-    boxShadow: theme.palette.primaryShadow,
-    padding: "1rem",
-    gap: theme.spacing(2),
+  export const PortfolioCardContainer = styled(Paper)(({ theme }) => ({
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    borderRadius: "20px",
+    overflow: "hidden",
+    transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+    "&:hover": {
+      transform: "translateY(-6px)",
+      borderColor: theme.palette.primary.main,
+      boxShadow: "0 20px 40px -15px rgba(99, 102, 241, 0.25)",
+    },
+    "&:hover img": {
+      transform: "scale(1.05)",
+    },
   }));
 
   export const portfolioImageContainer = styled(Box)({
     width: "100%",
-    height: "60%",
-    borderRadius: "0.5rem",
+    aspectRatio: "16 / 10",
+    overflow: "hidden",
+    backgroundColor: "#0F172A",
   });
 
   export const portfolioImage = styled("img")({
     width: "100%",
     height: "100%",
+    objectFit: "cover",
+    transition: "transform 0.45s ease",
   });
 
-  export const PortfolioDetailContainer = styled(Stack)({
-    alignItems: "center",
-    justifyContent: "space-between",
+  export const PortfolioContent = styled(Box)({
+    padding: "1.5rem",
+    display: "flex",
+    flexDirection: "column",
+    flex: 1,
   });
 
   export const PortfolioTitle = styled(Typography)(({ theme }) => ({
-    color: theme.palette.text.special,
-    fontWeight: 600,
+    color: theme.palette.text.primary,
+    fontWeight: 700,
+    marginBottom: "0.5rem",
   }));
-
-  export const PortfolioDescriptionContainer = styled(Stack)({
-    alignItems: "center",
-    justifyContent: "space-between",
-    gap: "1rem",
-  });
 
   export const PortfolioDescription = styled(Typography)(({ theme }) => ({
-    fontWeight: 500,
-    color: theme.palette.text.primary,
+    color: theme.palette.text.secondary,
     display: "-webkit-box",
-    "-webkit-line-clamp": "2",
-    "-webkit-box-orient": "vertical",
+    WebkitLineClamp: 3,
+    WebkitBoxOrient: "vertical",
     overflow: "hidden",
+    lineHeight: 1.6,
+    flex: 1,
   }));
 
-  export const PortfolioCardBtn = styled(Button)(({ theme }) => ({
-    padding: "0.5rem 1rem",
-    a: {
-      color: theme.palette.text.primary,
-    },
-  }));
+  export const PortfolioCardBtn = styled(Button)({
+    marginTop: "1rem",
+    padding: "0.6rem 1.2rem",
+    borderRadius: "12px",
+  });
 }
 
 export default S;

@@ -1,114 +1,120 @@
-import { Box, Button, Stack, TextField, Typography } from "@mui/material";
+import { Box, Button, Paper, Stack, TextField, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
 namespace S {
-  export const ContactSectionContainer = styled(Stack)(({ theme }) => ({
-    padding: `${theme.spacing(2)} ${theme.spacing(12)}`,
-    opacity: 0,
-    transition: "all 0.8s ease-in-out",
-    [theme.breakpoints.down("sm")]: {
-      padding: theme.spacing(2),
-      opacity: 1,
-    },
-    "&.contact-active": {
-      opacity: 1,
-    },
-  }));
+  export const ContactSectionContainer = styled(Stack)({
+    width: "100%",
+    padding: "5rem 0",
+    scrollMarginTop: "80px",
+  });
 
   export const ContactSubtitle = styled(Typography)(({ theme }) => ({
-    color: theme.palette.text.special,
+    color: theme.palette.primary.main,
+    fontWeight: 700,
+    fontSize: "0.8rem",
+    letterSpacing: "0.14em",
     textAlign: "center",
+    marginBottom: "0.5rem",
   }));
 
   export const ContactTitle = styled(Typography)(({ theme }) => ({
     color: theme.palette.text.primary,
     textAlign: "center",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "clamp(3vw,3rem,6vw) !important",
+    fontWeight: 800,
+    marginBottom: "3rem",
+  }));
+
+  export const ContactDetailSection = styled(Box)(({ theme }) => ({
+    display: "grid",
+    gridTemplateColumns: "1fr 1.65fr",
+    gap: theme.spacing(4),
+    alignItems: "stretch",
+    [theme.breakpoints.down("md")]: {
+      gridTemplateColumns: "1fr",
     },
   }));
 
-  export const ContactDetailSection = styled(Stack)(({ theme }) => ({
-    gap: theme.spacing(4),
-    alignItems: "center",
-    justifyContent: "center",
-    minHeight: "100vh",
-    [theme.breakpoints.down("sm")]: {
-      flexDirection: "column",
-    },
+  export const ContactDetailsCardContainer = styled(Paper)(({ theme }) => ({
+    padding: "2rem",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    gap: theme.spacing(3),
+    borderRadius: "24px",
   }));
 
-  export const ContactDetailsCardContainer = styled(Stack)(({ theme }) => ({
-    flex: 1,
-    height: "90vh",
-    padding: `${theme.spacing(2)} ${theme.spacing(4)}`,
-    gap: theme.spacing(4),
-    boxShadow: theme.palette.primaryShadow,
-    borderRadius: "8px",
-  }));
-
-  export const ContactImageContainer = styled(Stack)(({ theme }) => ({
-    height: "40%",
-    borderRadius: "8px",
-  }));
+  export const ContactImageContainer = styled(Box)({
+    width: "100%",
+    aspectRatio: "16 / 10",
+    borderRadius: "16px",
+    overflow: "hidden",
+  });
 
   export const ContactImage = styled("img")({
     width: "100%",
     height: "100%",
-    borderRadius: "8px",
+    objectFit: "cover",
   });
 
-  export const ContactDetailsContainer = styled(Box)(({ theme }) => ({
+  export const ContactDetailsContainer = styled(Box)({
     display: "flex",
     flexDirection: "column",
-    alignItems: "flex-start",
-    justifyContent: "center",
-    gap: theme.spacing(1),
-  }));
+    gap: "0.35rem",
+  });
 
   export const ContactDetailMainTitle = styled(Typography)(({ theme }) => ({
     color: theme.palette.text.primary,
-  }));
+    textDecoration: "none",
+  })) as any;
 
   export const ContactDetailSubtile = styled(Typography)(({ theme }) => ({
     color: theme.palette.text.secondary,
   }));
 
-  export const ContactLinksContainer = styled(Box)(({ theme }) => ({
-    width: "100%",
+  export const ContactLinksContainer = styled(Box)({
     display: "flex",
     flexDirection: "column",
-    alignItems: "flex-start",
+    gap: "0.85rem",
+  });
+
+  export const SocialBtn = styled("a")(({ theme }) => ({
+    width: 42,
+    height: 42,
+    borderRadius: "12px",
+    display: "flex",
+    alignItems: "center",
     justifyContent: "center",
-    gap: theme.spacing(4),
+    color: theme.palette.text.primary,
+    border:
+      theme.palette.mode === "dark"
+        ? "1px solid rgba(255,255,255,0.12)"
+        : "1px solid rgba(15,23,42,0.12)",
+    transition: "all 0.2s ease",
+    "&:hover": {
+      borderColor: theme.palette.primary.main,
+      color: theme.palette.primary.main,
+      transform: "translateY(-3px)",
+    },
   }));
 
-  export const ContactFormContainer = styled(Stack)(({ theme }) => ({
-    flex: 2,
-    height: "90vh",
-    gap: theme.spacing(4),
-    padding: theme.spacing(4),
-    justifyContent: "space-between",
-    boxShadow: theme.palette.primaryShadow,
-    borderRadius: "8px",
-  }));
+  export const ContactFormContainer = styled(Paper)({
+    padding: "2.25rem",
+    borderRadius: "24px",
+    display: "flex",
+    alignItems: "center",
+  });
 
-  export const ContactTextFieldContainer = styled(Stack)(({ theme }) => ({
-    justifyContent: "space-between",
-    gap: theme.spacing(4),
-  }));
+  export const ContactTextField = styled(TextField)({
+    "& .MuiOutlinedInput-root": {
+      borderRadius: "12px",
+    },
+  });
 
-  export const ContactTextField = styled(TextField)(
-    ({ size }: { size?: string }) =>
-      ({ theme }) => ({
-        flex: 1,
-        input: {
-          height: size === "medium" ? "300px" : "auto",
-        },
-      })
-  );
-
-  export const CustomButton = styled(Button)(() => ({}));
+  export const CustomButton = styled(Button)({
+    padding: "0.9rem 1.5rem",
+    borderRadius: "12px",
+    fontWeight: 700,
+  });
 }
 
 export default S;

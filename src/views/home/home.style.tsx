@@ -1,14 +1,16 @@
 import { styled } from "@mui/system";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 
 namespace S {
   export const HomeContainer = styled(Box)(({ theme }) => ({
     width: "100%",
-    background: theme.palette.background,
-    backgroundSize: "150% 150%",
-    // overflowX: "hidden",
-    padding: "0 1rem",
-    "@keyframes GRADIENT_ANIME": {},
+    maxWidth: "1280px",
+    margin: "0 auto",
+    padding: "0 1.5rem",
+    overflowX: "clip",
+    [theme.breakpoints.down("sm")]: {
+      padding: "0 1rem",
+    },
   }));
 }
 

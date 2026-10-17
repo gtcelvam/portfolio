@@ -20,232 +20,192 @@ import COLLEGE_SITE from "../../assests/images/college-site.png";
 import STREAMING_SITE from "../../assests/images/streaming-site.png";
 import HOTEL_SITE from "../../assests/images/hotel-site.png";
 import WEATHER_APP from "../../assests/images/ts-weather-app.png";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import GRAPHQL from "../../assests/images/graphql.png";
 import REST_API from "../../assests/images/rest-api.png";
+import AVATAR from "../../assests/images/avatar.png";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { Theme } from "@mui/material/styles";
 
 export const profileID = "6424756d6531409d24093d10";
 
-export const generateUniqueId = () =>
-  "id_" + Date.now() + String(Math.random()).substr(2);
+export const DEFAULT_PROFILE = {
+  name: "Thamarai Selvan",
+  role: "Full-Stack & Frontend Developer",
+  image: AVATAR,
+  description:
+    "Passionate Frontend & Full-Stack Software Developer specializing in React.js, Next.js, TypeScript, and Node.js. Experienced in architecting scalable e-commerce platforms, high-performance web applications, and intuitive user interfaces.",
+};
 
 export const EducationDetails = [
   {
-    id: generateUniqueId(),
-    education: "BE - Civil Engineering",
-    place: "Rvs Technical Campus - Coimbatore",
+    id: "edu-1",
+    education: "B.E. — Civil Engineering",
+    place: "RVS Technical Campus, Coimbatore",
     percentage: "6.47 CGPA",
     description:
-      "Obtained a Bachelor's degree in Civil Engineering with a focus on structural analysis and design, completed from 2014-2018.",
+      "Completed Bachelor of Engineering with a strong foundation in analytical problem-solving, structural modeling, and quantitative engineering principles (2014 – 2018).",
     icon: RVS,
   },
   {
-    id: generateUniqueId(),
-    education: "12th Grade",
-    place: "GBHSS - Pattukkottai",
+    id: "edu-2",
+    education: "Higher Secondary (12th Grade)",
+    place: "GBHSS — Pattukkottai, Thanjavur",
     percentage: "83%",
     description:
-      "Completed 12th grade with a focus on Mathematics and Computer Science in 2014 from GBHSS, Pattukkottai, Thanjavur.",
+      "Specialized in Mathematics and Computer Science with distinction in programming fundamentals (2014).",
     icon: SCHOOL,
   },
   {
-    id: generateUniqueId(),
-    education: "10th Grade",
-    place: "GBHSS - Pattukkottai",
+    id: "edu-3",
+    education: "Secondary School (10th Grade)",
+    place: "GBHSS — Pattukkottai, Thanjavur",
     percentage: "77.2%",
     description:
-      "Completed 10th grade with a focus on Mathematics and Science from the State Board in 2012 from GBHSS, Pattukkottai, Thanjavur.",
+      "Completed State Board Secondary Education with a focus on Mathematics and Science (2012).",
     icon: SCHOOL,
   },
 ];
 
 export const Experience = [
   {
-    id: generateUniqueId(),
+    id: "exp-1",
     companyName: "Appiness Interactive",
-    role: "Software Developer - Web",
-    location: "Bangalore",
-    duration: "July 2023 - Present",
+    role: "Software Developer — Web",
+    location: "Bengaluru",
+    duration: "July 2023 – Present",
+    startDate: "2023-07-01",
+    endDate: "present",
     description:
-      "Working on developing and managing a high-performance e-commerce platform using Next.js with integrated Razorpay payment processing. Implemented server-side rendering for SEO, dynamic routing, and secure transactions for a seamless shopping experience.",
+      "Architecting and scaling high-performance e-commerce and web platforms using Next.js, React.js, and TypeScript with integrated Razorpay payment workflows, SSR SEO optimization, and dynamic routing.",
+    summary:
+      "Architecting and scaling high-performance e-commerce and web platforms using Next.js, React.js, and TypeScript with integrated Razorpay payment workflows, SSR SEO optimization, and dynamic routing.",
     icon: APPINESS,
+    image: APPINESS,
   },
   {
-    id: generateUniqueId(),
+    id: "exp-2",
     companyName: "Aequalis Software Solutions",
     role: "Junior Software Developer",
     location: "Chennai",
-    duration: "May 2022 - May 2023",
+    duration: "May 2022 – May 2023",
+    startDate: "2022-05-01",
+    endDate: "2023-05-01",
     description:
-      "Managed content creation and delivery for web applications, leveraging React and TypeScript to interact with APIs and optimize delivery through thorough quality checks and adherence to technical specifications.",
+      "Built responsive React and TypeScript web modules, decentralized exchange (DEX) interfaces, and REST/GraphQL data integrations with strict code quality standards.",
+    summary:
+      "Built responsive React and TypeScript web modules, decentralized exchange (DEX) interfaces, and REST/GraphQL data integrations with strict code quality standards.",
     icon: AEQUALIS,
+    image: AEQUALIS,
   },
   {
-    id: generateUniqueId(),
-    companyName: "Amazon Developement Center",
-    role: "Print Quality Assurance Associate",
+    id: "exp-3",
+    companyName: "Amazon Development Centre",
+    role: "Quality Assurance Associate",
     location: "Chennai",
-    duration: "Jul 2019 - Dec 2020",
+    duration: "Jul 2019 – Dec 2020",
+    startDate: "2019-07-01",
+    endDate: "2020-12-01",
     description:
-      "Responsible for checking the quality of the content and also to check the content whether it meet the criteria of the process",
+      "Led end-to-end content and UI quality validation, regression checks, and process compliance across high-volume production pipelines.",
+    summary:
+      "Led end-to-end content and UI quality validation, regression checks, and process compliance across high-volume production pipelines.",
     icon: AMAZON,
+    image: AMAZON,
   },
 ];
 
 export const FrontEndSkills = [
-  {
-    id: generateUniqueId(),
-    skill: "Next JS",
-    logo: NEXTJS,
-  },
-  {
-    id: generateUniqueId(),
-    skill: "TypeScript",
-    logo: TYPESCRIPT,
-  },
-  {
-    id: generateUniqueId(),
-    skill: "React",
-    logo: REACT,
-  },
-  {
-    id: generateUniqueId(),
-    skill: "Rest API",
-    logo: REST_API,
-  },
-  {
-    id: generateUniqueId(),
-    skill: "JavaScript",
-    logo: JS,
-  },
-  {
-    id: generateUniqueId(),
-    skill: "Material UI",
-    logo: MUI,
-  },
-  {
-    id: generateUniqueId(),
-    skill: "Styled Components",
-    logo: STYLEDCOMPONENTS,
-  },
-  {
-    id: generateUniqueId(),
-    skill: "SASS",
-    logo: SASS,
-  },
-  {
-    id: generateUniqueId(),
-    skill: "CSS",
-    logo: CSS,
-  },
-  {
-    id: generateUniqueId(),
-    skill: "HTML",
-    logo: HTML,
-  },
+  { id: "fe-1", name: "Next.js", skill: "Next.js", image: NEXTJS, logo: NEXTJS, experience: "Advanced", backend: false },
+  { id: "fe-2", name: "TypeScript", skill: "TypeScript", image: TYPESCRIPT, logo: TYPESCRIPT, experience: "Advanced", backend: false },
+  { id: "fe-3", name: "React.js", skill: "React.js", image: REACT, logo: REACT, experience: "Advanced", backend: false },
+  { id: "fe-4", name: "JavaScript (ES6+)", skill: "JavaScript", image: JS, logo: JS, experience: "Advanced", backend: false },
+  { id: "fe-5", name: "Material UI", skill: "Material UI", image: MUI, logo: MUI, experience: "Advanced", backend: false },
+  { id: "fe-6", name: "REST APIs", skill: "REST APIs", image: REST_API, logo: REST_API, experience: "Advanced", backend: false },
+  { id: "fe-7", name: "Styled Components", skill: "Styled Components", image: STYLEDCOMPONENTS, logo: STYLEDCOMPONENTS, experience: "Intermediate", backend: false },
+  { id: "fe-8", name: "Sass / SCSS", skill: "SASS", image: SASS, logo: SASS, experience: "Advanced", backend: false },
+  { id: "fe-9", name: "CSS3", skill: "CSS3", image: CSS, logo: CSS, experience: "Advanced", backend: false },
+  { id: "fe-10", name: "HTML5", skill: "HTML5", image: HTML, logo: HTML, experience: "Advanced", backend: false },
 ];
 
 export const BackEndSkills = [
-  {
-    id: generateUniqueId(),
-    skill: "Node JS",
-    logo: NODEJS,
-  },
-  {
-    id: generateUniqueId(),
-    skill: "MongoDB",
-    logo: MONGODB,
-  },
-  {
-    id: generateUniqueId(),
-    skill: "MySQL",
-    logo: MYSQL,
-  },
-  {
-    id: generateUniqueId(),
-    skill: "GraphQL",
-    logo: GRAPHQL,
-  },
+  { id: "be-1", name: "Node.js", skill: "Node.js", image: NODEJS, logo: NODEJS, experience: "Intermediate", backend: true },
+  { id: "be-2", name: "MongoDB", skill: "MongoDB", image: MONGODB, logo: MONGODB, experience: "Intermediate", backend: true },
+  { id: "be-3", name: "GraphQL", skill: "GraphQL", image: GRAPHQL, logo: GRAPHQL, experience: "Intermediate", backend: true },
+  { id: "be-4", name: "MySQL / SQL", skill: "MySQL", image: MYSQL, logo: MYSQL, experience: "Intermediate", backend: true },
 ];
 
 export const ProjectsData = [
   {
-    id: generateUniqueId(),
+    id: "proj-1",
+    name: "Real-Time Weather Forecast App",
     title: "Weather App",
     image: WEATHER_APP,
     description:
-      "Users can search for weather day for the day also for next 12 hours and next 1 week.",
+      "Interactive weather intelligence web app providing live conditions, 12-hour hourly breakdowns, and 7-day forecasts with location search.",
+    projectLink: "https://ts-test-weather-app.netlify.app",
+    repositoryLink: "https://github.com/gtcelvam",
     link: "https://ts-test-weather-app.netlify.app",
-    tech: ["HTML", "CSS", "Javascript", "React", "Typescript", "Next JS"],
+    techStack: ["Next.js", "TypeScript", "React", "CSS3"],
+    tech: ["Next.js", "TypeScript", "React", "CSS3"],
   },
   {
-    id: generateUniqueId(),
+    id: "proj-2",
+    name: "Full-Stack E-Commerce Storefront",
     title: "Shopping Website",
     image: SHOPPING_SITE,
     description:
-      "Users can create account and add products of their wish.All the products are categorized for better user experience.Also users can add quantities as they wish and they can switch colors available for the particular product.Users can only add products after login to their respective account.",
+      "Authenticated e-commerce platform featuring categorized product discovery, dynamic color/quantity selection, and persistent user wishlists & carts.",
+    projectLink: "https://ts-project-f3354.web.app",
+    repositoryLink: "https://github.com/gtcelvam",
     link: "https://ts-project-f3354.web.app",
-    tech: ["HTML", "CSS", "Javascript", "React", "Node Js", "MongoDB"],
+    techStack: ["React", "Node.js", "MongoDB", "JavaScript"],
+    tech: ["React", "Node.js", "MongoDB", "JavaScript"],
   },
   {
-    id: generateUniqueId(),
+    id: "proj-3",
+    name: "Cinema & Trailer Streaming Hub",
     title: "Streaming Website",
     image: STREAMING_SITE,
     description:
-      "Users can see newly released movies list and also they can watch the trailer of it here.Users can check movies of different categories and also they can search movies based on genre.",
+      "On-demand movie discovery and trailer streaming application powered by TMDB API with genre filtering and real-time search.",
+    projectLink: "https://photosearchapp.web.app/",
+    repositoryLink: "https://github.com/gtcelvam",
     link: "https://photosearchapp.web.app/",
-    tech: [
-      "HTML",
-      "CSS",
-      "Javascript",
-      "React",
-      "Styled Components",
-      "TMDB API",
-    ],
+    techStack: ["React", "Styled Components", "TMDB API", "JavaScript"],
+    tech: ["React", "Styled Components", "TMDB API", "JavaScript"],
   },
   {
-    id: generateUniqueId(),
+    id: "proj-4",
+    name: "Hospitality & Dining Showcase",
     title: "Hotel Site",
     image: HOTEL_SITE,
     description:
-      "Simple hotel website layout where users can get detials about particular hotel and also theri special dishes.This site also have the section for comments from users.",
+      "Modern hospitality portal highlighting curated signature dishes, room amenities, and interactive guest review sections.",
+    projectLink: "https://restaurantwebsite-ts.web.app/",
+    repositoryLink: "https://github.com/gtcelvam",
     link: "https://restaurantwebsite-ts.web.app/",
-    tech: ["HTML", "CSS", "Javascript"],
+    techStack: ["HTML5", "CSS3", "JavaScript"],
+    tech: ["HTML5", "CSS3", "JavaScript"],
   },
   {
-    id: generateUniqueId(),
+    id: "proj-5",
+    name: "University & Campus Portal",
     title: "College Website",
     image: COLLEGE_SITE,
     description:
-      "This site has sections where users can get details about the courses provided from this college and they can visit their gallery page to check activities happening internally and also user can send message to contact them.",
+      "Comprehensive academic web portal featuring course catalogs, campus event galleries, and direct student inquiry workflows.",
+    projectLink: "https://collegewebsite-ts.web.app/",
+    repositoryLink: "https://github.com/gtcelvam",
     link: "https://collegewebsite-ts.web.app/",
-    tech: ["HTML", "CSS", "Javascript", "Bootstrap"],
+    techStack: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
+    tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
   },
 ];
 
 export const useCustomView = () =>
   useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
 
-/* Social Links */
-export const LINKEDIN_URL =
-  "https://www.linkedin.com/in/thamarai-selvan-851068164/";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/thamarai-selvan-851068164/";
 export const INSTAGRAM_URL = "https://www.instagram.com/gtselvam";
 export const GITHUB_URL = "https://github.com/gtcelvam";
-export const RESUME_URL =
-  "https://drive.google.com/file/d/1NO-ybwSxkxOGmNCmHQu1IJDsRtm-xnw5/view?usp=sharing";
-
-/* Scroll Animation  */
-export const fadeInAnime = {
-  animation: "fadeIn 2s ease-in-out",
-  "@keyframes fadeIn": {
-    "0%": {
-      opacity: 0,
-      marginTop: "20px",
-    },
-    "100%": {
-      opacity: 1,
-      marginTop: 0,
-    },
-  },
-};
+export const RESUME_URL = "https://drive.google.com/file/d/1NO-ybwSxkxOGmNCmHQu1IJDsRtm-xnw5/view?usp=sharing";
