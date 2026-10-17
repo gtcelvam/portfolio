@@ -1,66 +1,51 @@
-import { Chip, Box, Typography } from "@mui/material";
-import { Stack, styled } from "@mui/system";
+import { Chip, Box, Typography, Stack } from "@mui/material";
+import { styled } from "@mui/system";
 import LaunchIcon from "@mui/icons-material/Launch";
 
 namespace S {
-  export const ProjectModalContainer = styled(Stack)(({ theme }) => ({
-    minWidth: "30rem",
-    minHeight: "40rem",
-    [theme.breakpoints.down("sm")]: {
-      minWidth: "auto",
-      minHeight: "30rem",
-    },
-  }));
+  export const ProjectModalContainer = styled(Stack)({
+    width: "min(92vw, 560px)",
+    overflow: "hidden",
+  });
 
-  export const ProjectBanner = styled("img")(() => ({}));
+  export const ProjectBanner = styled("img")({
+    width: "100%",
+    aspectRatio: "16 / 9",
+    objectFit: "cover",
+  });
 
   export const ProjectDetailsContainer = styled(Stack)(({ theme }) => ({
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: "1rem",
-    height: "100%",
+    padding: "1.5rem",
     gap: theme.spacing(2),
-    ".redirect-btn": {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      gap: "0.5rem",
-      color: theme.palette.text.primary,
-    },
   }));
 
   export const ProjectTitle = styled(Typography)(({ theme }) => ({
-    color: theme.palette.text.special,
-    fontSize: "1.5rem",
+    color: theme.palette.text.primary,
+    fontSize: "1.35rem",
+    fontWeight: 700,
   }));
 
   export const ProjectDescription = styled(Typography)(({ theme }) => ({
-    fontSize: "0.875rem",
+    fontSize: "0.95rem",
+    lineHeight: 1.7,
     color: theme.palette.text.secondary,
   }));
 
-  export const ProjectTagsContainer = styled(Box)(({ theme }) => ({
+  export const ProjectTagsContainer = styled(Box)({
     width: "100%",
     display: "flex",
-    alignItems: "flex-start",
-    padding: "0 1rem",
     flexWrap: "wrap",
-    gap: theme.spacing(2),
-    [theme.breakpoints.down("sm")]: {
-      padding: "unset",
-    },
-  }));
+    gap: "0.5rem",
+  });
 
-  export const ProjectTags = styled(Chip)(({ theme }) => ({
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "0.75rem",
-    },
-  }));
+  export const ProjectTags = styled(Chip)({
+    fontWeight: 600,
+  });
 
-  export const ProjectRedirectIcon = styled(LaunchIcon)(() => ({
-    width: "20px",
-    height: "auto",
-  }));
+  export const ProjectRedirectIcon = styled(LaunchIcon)({
+    width: "18px",
+    height: "18px",
+  });
 }
 
 export default S;

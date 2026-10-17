@@ -1,50 +1,96 @@
-import { grey, blue, green } from "@mui/material/colors";
-import { dark, light } from "./customColors";
 import { PaletteMode } from "@mui/material";
+import { ThemeOptions } from "@mui/material/styles";
 
-export const getTheme = (mode: PaletteMode) => ({
-  palette: {
-    mode,
-    ...(mode === "light"
-      ? {
-          // palette values for light mode
-          primary: light,
-          divider: light[500],
-          text: {
-            primary: grey[900],
-            secondary: grey[800],
-            special: "#C70039",
+export const getTheme = (mode: PaletteMode): ThemeOptions => {
+  const isDark = mode === "dark";
+
+  return {
+    palette: {
+      mode,
+      primary: {
+        main: isDark ? "#6366F1" : "#4F46E5",
+        light: "#818CF8",
+        dark: "#4338CA",
+      },
+      secondary: {
+        main: isDark ? "#14B8A6" : "#0D9488",
+      },
+      background: {
+        default: isDark ? "#07090E" : "#F8FAFC",
+        paper: isDark ? "rgba(17, 24, 39, 0.72)" : "rgba(255, 255, 255, 0.85)",
+      },
+      text: {
+        primary: isDark ? "#F8FAFC" : "#0F172A",
+        secondary: isDark ? "#94A3B8" : "#475569",
+        special: isDark ? "#818CF8" : "#4F46E5",
+      } as any,
+      custom: {
+        main: isDark ? "#6366F1" : "#4F46E5",
+        dark: isDark ? "#1E293B" : "#E2E8F0",
+        transparentTheme: isDark ? "rgba(15, 23, 42, 0.75)" : "rgba(255, 255, 255, 0.80)",
+      },
+      btnShadow: isDark
+        ? "0 8px 24px -4px rgba(99, 102, 241, 0.25)"
+        : "0 8px 20px -4px rgba(79, 70, 229, 0.18)",
+      primaryShadow: isDark
+        ? "0 20px 40px -15px rgba(0, 0, 0, 0.6)"
+        : "0 20px 40px -15px rgba(15, 23, 42, 0.08)",
+    } as any,
+    typography: {
+      fontFamily: '"Inter", sans-serif',
+      h1: {
+        fontFamily: '"Plus Jakarta Sans", sans-serif',
+        fontWeight: 800,
+        letterSpacing: "-0.03em",
+        lineHeight: 1.1,
+      },
+      h2: {
+        fontFamily: '"Plus Jakarta Sans", sans-serif',
+        fontWeight: 800,
+        letterSpacing: "-0.025em",
+      },
+      h3: {
+        fontFamily: '"Plus Jakarta Sans", sans-serif',
+        fontWeight: 700,
+        letterSpacing: "-0.02em",
+      },
+    },
+    shape: {
+      borderRadius: 18,
+    },
+    components: {
+      MuiCssBaseline: {
+        styleOverrides: {
+          body: {
+            backgroundColor: isDark ? "#07090E" : "#F8FAFC",
+            backgroundImage: isDark
+              ? "radial-gradient(at 15% 15%, rgba(99, 102, 241, 0.15) 0px, transparent 45%), radial-gradient(at 85% 20%, rgba(20, 184, 166, 0.10) 0px, transparent 45%)"
+              : "radial-gradient(at 15% 15%, rgba(99, 102, 241, 0.08) 0px, transparent 45%), radial-gradient(at 85% 20%, rgba(20, 184, 166, 0.06) 0px, transparent 45%)",
+            backgroundAttachment: "fixed",
+            color: isDark ? "#F8FAFC" : "#0F172A",
           },
-          custom: {
-            dark: "#7B1830",
-            transparentTheme: "#FAFAFA90",
+        },
+      },
+      MuiPaper: {
+        styleOverrides: {
+          root: {
+            backdropFilter: "blur(16px)",
+            border: isDark
+              ? "1px solid rgba(255, 255, 255, 0.08)"
+              : "1px solid rgba(15, 23, 42, 0.08)",
+            backgroundImage: "none",
           },
-          background: "#ffffff",
-          btnShadow: "0px 1px 5px 1px rgba(222,222,222,1);",
-          primaryShadow: "5px 7px 15px 6px rgba(117,117,117,0.23);",
-          transparentTheme: dark.primary.transparent,
-          gradient:
-            "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,254,254,1) 65%, rgba(255,200,215,1) 95%)",
-        }
-      : {
-          // palette values for dark mode
-          primary: dark,
-          divider: dark[500],
-          text: {
-            primary: "#fff",
-            secondary: grey[500],
-            special: "#0034B8",
+        },
+      },
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            textTransform: "none",
+            fontWeight: 600,
+            borderRadius: "12px",
           },
-          custom: {
-            dark: "#050E25",
-            transparentTheme: "#00000090",
-          },
-          background: "#212428",
-          btnShadow: "10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;",
-          primaryShadow: "5px 7px 15px 6px rgba(16,27,36,1);",
-          transparentTheme: light.primary.transparent,
-          gradient:
-            "linear-gradient(90deg, rgba(33,36,40,1) 60%, rgba(32,95,255,0.6699054621848739) 95%)",
-        }),
-  },
-});
+        },
+      },
+    },
+  };
+};

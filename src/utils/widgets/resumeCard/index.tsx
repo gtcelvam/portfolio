@@ -4,36 +4,38 @@ import S from "./resume-card-style";
 import { sanitizedExperienceData } from "../../helpers";
 
 const ResumeCard: FC<ResumeCardDataType> = ({ data }) => {
-  let cardData = {
-    title: data.education ? data.education : data.companyName,
-    subtitle: data.place ? data.place : data.role,
-    rating: data.percentage ? data.percentage : sanitizedExperienceData(data),
-    description: data.description ? data.description : data.summary,
-    icon: data.icon ? data.icon : data.image,
+  const cardData = {
+    title: data.education || data.companyName || "",
+    subtitle: data.place || data.role || "",
+    rating:
+      data.percentage ||
+      data.duration ||
+      sanitizedExperienceData(data as any) ||
+      "Full-Time",
+    description: data.description || data.summary || "",
+    icon: data.icon || data.image || "",
   };
 
   return (
     <S.ResumeCardContainer>
-      <S.ResumeCardHeader direction={"row"} width={"100%"}>
-        <S.ResumeCardHeader gap={"0.3rem"}>
-          <S.ResumeCardTitleContainer>
-            <S.ResumeCardIcon src={cardData.icon} alt="icon" />
-            <S.ResumeCardTitle>{cardData.title}</S.ResumeCardTitle>
-          </S.ResumeCardTitleContainer>
-          <S.ResumeCardSubtitle variant={"caption"}>
-            {cardData.subtitle}
-          </S.ResumeCardSubtitle>
-        </S.ResumeCardHeader>
-        <S.ResumeCardRatingContainer>
-          <S.ResumeCardRating variant={"caption"}>
-            {cardData.rating}
-          </S.ResumeCardRating>
-        </S.ResumeCardRatingContainer>
+      <S.ResumeCardHeader direction="row" justifyContent="space-between" alignItems="flex-start" spacing={2}>
+        <S.ResumeCardTitleContainer>
+          {cardData.icon && <S.ResumeCardIcon src={cardData.icon} alt={cardData.title} />}
+          <div>
+            <S.ResumeCardTitle variant="h6">{cardData.title}</S.ResumeCardTitle>
+            <S.ResumeCardSubtitle variant="body2">{cardData.subtitle}</S.ResumeCardSubtitle>
+          </div>
+        </S.ResumeCardTitleContainer>
+
+        {cardData.rating && (
+          <S.ResumeCardRatingContainer>
+            <S.ResumeCardRating variant="caption">{cardData.rating}</S.ResumeCardRating>
+          </S.ResumeCardRatingContainer>
+        )}
       </S.ResumeCardHeader>
+
       <S.ResumeCardBody>
-        <S.ResumeCardDescription variant={"subtitle1"}>
-          {cardData.description}
-        </S.ResumeCardDescription>
+        <S.ResumeCardDescription variant="body2">{cardData.description}</S.ResumeCardDescription>
       </S.ResumeCardBody>
     </S.ResumeCardContainer>
   );
